@@ -24,8 +24,12 @@ import java.nio.ShortBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
+import android.opengl.GLUtils;
 import android.opengl.Matrix;
 import android.util.Log;
 
@@ -106,6 +110,8 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
         return shader;
     }
+    
+    
 
     /**
      * Utility method for debugging OpenGL calls. Provide the name of the call
@@ -154,6 +160,15 @@ class Triangle {
     private int mColorHandle;
     private int mMVPMatrixHandle;
     private final ShortBuffer drawListBuffer;
+    
+    private FloatBuffer textureBuffer;  // buffer holding the texture coordinates
+    private float texture[] = {
+     // Mapping coordinates for the vertices
+    			0.0f, 1.0f,     // top left     (V2)
+    	        0.0f, 0.0f,     // bottom left  (V1)
+    	        1.0f, 1.0f,     // top right    (V4)
+    	        1.0f, 0.0f      // bottom right (V3)
+    	};
 
     // number of coordinates per vertex in this array
     static final int COORDS_PER_VERTEX = 3;
@@ -196,6 +211,13 @@ class Triangle {
         drawListBuffer = dlb.asShortBuffer();
         drawListBuffer.put(drawOrder);
         drawListBuffer.position(0);
+        
+        
+        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(texture.length * 4);
+        byteBuffer.order(ByteOrder.nativeOrder());
+        textureBuffer = byteBuffer.asFloatBuffer();
+        textureBuffer.put(texture);
+        textureBuffer.position(0);
 
         // prepare shaders and OpenGL program
         int vertexShader = MyGLRenderer.loadShader(GLES20.GL_VERTEX_SHADER,
@@ -209,6 +231,29 @@ class Triangle {
         GLES20.glLinkProgram(mProgram);                  // create OpenGL program executables
 
     }
+    
+    private int[] textures = new int[1];
+    
+    public void loadGLTexture(GL10 gl, Context context) {
+    // loading texture
+    		Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
+    		   R.drawable.android_image);
+    	 
+    	    // generate one texture pointer
+    	    gl.glGenTextures(1, textures, 0);
+    	    // ...and bind it to our array
+    	    gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[0]);
+    	 
+    	    // create nearest filtered texture
+    	    gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_NEAREST);
+    	    gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
+    	 
+    	    // Use Android GLUtils to specify a two-dimensional texture image from our bitmap
+    	    GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
+    	 
+    	    // Clean up
+    	    bitmap.recycle();
+    	}
 
     public void draw(float[] mvpMatrix) {
         // Add program to OpenGL environment
@@ -219,6 +264,8 @@ class Triangle {
 
         // Enable a handle to the triangle vertices
         GLES20.glEnableVertexAttribArray(mPositionHandle);
+        
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textures[0]);
 
         // Prepare the triangle coordinate data
         GLES20.glVertexAttribPointer(mPositionHandle, COORDS_PER_VERTEX,
@@ -246,6 +293,28 @@ class Triangle {
 
         // Disable vertex array
         GLES20.glDisableVertexAttribArray(mPositionHandle);
+        
+     // bind the previously generated texture
+//        	        gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[0]);
+//        	 
+//        	        // Point to our buffers
+//        	        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+//        	        gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+//        	 
+//        	        // Set the face rotation
+//        	        gl.glFrontFace(GL10.GL_CW);
+//        	 
+//        	        // Point to our vertex buffer
+//        	        gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
+//        	        gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureBuffer);
+//        	 
+//        	        // Draw the vertices as triangle strip
+//        	        gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, vertices.length / 3);
+//        	 
+//        	        //Disable the client state before leaving
+//        	        gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+//        	        gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+        
     }
 }
 
