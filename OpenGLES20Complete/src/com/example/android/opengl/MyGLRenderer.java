@@ -46,8 +46,16 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     // Declare as volatile because we are updating it from another thread
     public volatile float mAngle;
+    private Context context;
+    
+    
 
-    @Override
+    public MyGLRenderer(Context context) {
+		super();
+		this.context = context;
+	}
+
+	@Override
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
 
         // Set the background frame color
@@ -55,6 +63,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
         mTriangle = new Triangle();
         mSquare   = new Square();
+        mTriangle.loadGLTexture(context);
     }
 
     @Override
@@ -164,10 +173,10 @@ class Triangle {
     private FloatBuffer textureBuffer;  // buffer holding the texture coordinates
     private float texture[] = {
      // Mapping coordinates for the vertices
-    			0.0f, 1.0f,     // top left     (V2)
+    			0.0f, 3.0f,     // top left     (V2)
     	        0.0f, 0.0f,     // bottom left  (V1)
-    	        1.0f, 1.0f,     // top right    (V4)
-    	        1.0f, 0.0f      // bottom right (V3)
+    	        3.0f, 3.0f,     // top right    (V4)
+    	        3.0f, 0.0f      // bottom right (V3)
     	};
 
     // number of coordinates per vertex in this array
@@ -234,19 +243,19 @@ class Triangle {
     
     private int[] textures = new int[1];
     
-    public void loadGLTexture(GL10 gl, Context context) {
+    public void loadGLTexture(Context context) {
     // loading texture
     		Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
     		   R.drawable.android_image);
     	 
     	    // generate one texture pointer
-    	    gl.glGenTextures(1, textures, 0);
+    	    GLES20.glGenTextures(1, textures, 0);
     	    // ...and bind it to our array
-    	    gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[0]);
+    	    GLES20.glBindTexture(GL10.GL_TEXTURE_2D, textures[0]);
     	 
     	    // create nearest filtered texture
-    	    gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_NEAREST);
-    	    gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
+    	    GLES20.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_NEAREST);
+    	    GLES20.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
     	 
     	    // Use Android GLUtils to specify a two-dimensional texture image from our bitmap
     	    GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
@@ -263,28 +272,41 @@ class Triangle {
         mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
 
         // Enable a handle to the triangle vertices
-        GLES20.glEnableVertexAttribArray(mPositionHandle);
+//        GLES20.glEnableVertexAttribArray(mPositionHandle);
         
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textures[0]);
+//        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textures[0]);
 
         // Prepare the triangle coordinate data
         GLES20.glVertexAttribPointer(mPositionHandle, COORDS_PER_VERTEX,
                                      GLES20.GL_FLOAT, false,
                                      vertexStride, vertexBuffer);
+        GLES20.glEnableVertexAttribArray(mPositionHandle);
+        
+        GLES20.glVertexAttribPointer(mPositionHandle, 2,
+                GLES20.GL_FLOAT, false,
+                vertexStride, textureBuffer);
+        GLES20.glEnableVertexAttribArray(mPositionHandle);
+        
+        
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textures[0]);
+
+        GLES20.glUniform1i(mPositionHandle, 0);
 
         // get handle to fragment shader's vColor member
-        mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
+//        mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
 
         // Set color for drawing the triangle
-        GLES20.glUniform4fv(mColorHandle, 1, color, 0);
+//        GLES20.glUniform4fv(mColorHandle, 1, color, 0);
 
         // get handle to shape's transformation matrix
-        mMVPMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMVPMatrix");
-        MyGLRenderer.checkGlError("glGetUniformLocation");
+//        mMVPMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMVPMatrix");
+//        MyGLRenderer.checkGlError("glGetUniformLocation");
 
         // Apply the projection and view transformation
-        GLES20.glUniformMatrix4fv(mMVPMatrixHandle, 1, false, mvpMatrix, 0);
-        MyGLRenderer.checkGlError("glUniformMatrix4fv");
+//        GLES20.glUniformMatrix4fv(mMVPMatrixHandle, 1, false, mvpMatrix, 0);
+//        MyGLRenderer.checkGlError("glUniformMatrix4fv");
 
         // Draw the triangle
 //        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, vertexCount);

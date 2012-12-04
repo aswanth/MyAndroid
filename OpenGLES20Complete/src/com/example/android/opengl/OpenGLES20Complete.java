@@ -77,7 +77,7 @@ class MyGLSurfaceView extends GLSurfaceView {
         setEGLContextClientVersion(2);
 
         // Set the Renderer for drawing on the GLSurfaceView
-        mRenderer = new MyGLRenderer();
+        mRenderer = new MyGLRenderer(context);
         setRenderer(mRenderer);
 
 //         Render the view only when there is a change in the drawing data
