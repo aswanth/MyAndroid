@@ -24,7 +24,7 @@ public class LessonThreeActivity extends Activity
 		final ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();
 		final boolean supportsEs2 = configurationInfo.reqGlEsVersion >= 0x20000;
 
-		if (supportsEs2) 
+		if (true) 
 		{
 			// Request an OpenGL ES 2.0 compatible context.
 			mGLSurfaceView.setEGLContextClientVersion(2);
