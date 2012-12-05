@@ -282,31 +282,31 @@ class Triangle {
                                      vertexStride, vertexBuffer);
         GLES20.glEnableVertexAttribArray(mPositionHandle);
         
-        GLES20.glVertexAttribPointer(mPositionHandle, 2,
-                GLES20.GL_FLOAT, false,
-                vertexStride, textureBuffer);
-        GLES20.glEnableVertexAttribArray(mPositionHandle);
+//        GLES20.glVertexAttribPointer(mPositionHandle, 2,
+//                GLES20.GL_FLOAT, false,
+//                vertexStride, textureBuffer);
+//        GLES20.glEnableVertexAttribArray(mPositionHandle);
         
         
-        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
-
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textures[0]);
-
-        GLES20.glUniform1i(mPositionHandle, 0);
+//        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+//
+//        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textures[0]);
+//
+//        GLES20.glUniform1i(mPositionHandle, 0);
 
         // get handle to fragment shader's vColor member
-//        mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
+        mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
 
         // Set color for drawing the triangle
-//        GLES20.glUniform4fv(mColorHandle, 1, color, 0);
+        GLES20.glUniform4fv(mColorHandle, 1, color, 0);
 
         // get handle to shape's transformation matrix
-//        mMVPMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMVPMatrix");
-//        MyGLRenderer.checkGlError("glGetUniformLocation");
+        mMVPMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMVPMatrix");
+        MyGLRenderer.checkGlError("glGetUniformLocation");
 
         // Apply the projection and view transformation
-//        GLES20.glUniformMatrix4fv(mMVPMatrixHandle, 1, false, mvpMatrix, 0);
-//        MyGLRenderer.checkGlError("glUniformMatrix4fv");
+        GLES20.glUniformMatrix4fv(mMVPMatrixHandle, 1, false, mvpMatrix, 0);
+        MyGLRenderer.checkGlError("glUniformMatrix4fv");
 
         // Draw the triangle
 //        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, vertexCount);
