@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   
+    android:background="@drawable/login_bg">
+    <ImageView
+        android:id="@+id/appLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/docphin_logo" />
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/appLogo"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/email_password_fieldbg"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="@string/emailFieldLabel"
+        android:paddingLeft="15dp" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/editTextUsername"
+        android:background="@drawable/email_password_fieldbg"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/passwordLabel" 
+        android:paddingLeft="15dp">
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextPassword"
+        android:layout_alignRight="@+id/editTextPassword"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/login_btn"
+        tools:context=".DocphinLoginActivity" />
+    
+    <TextView
+        android:id="@+id/signUpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:text="@string/signUpText"
+        android:textColor="@color/blue" />
+
+    
+
+</RelativeLayout>

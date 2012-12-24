@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/paneLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:background="@drawable/docphintitlebar">
+
+    <Button
+        android:id="@+id/paneButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/slide_button"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:text="" />
+    <ImageView android:id="@+id/docphin_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/paneButton"
+        android:layout_centerVertical="true"
+        android:src="@drawable/docphin_icon"/>
+    <TextView 
+        android:id="@+id/textviewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/docphin_icon"
+        android:layout_centerVertical="true"
+        android:textColor="@color/black"/>
+    
+    <ImageView android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/search_icon"/>
+    <ImageView android:id="@+id/refreshButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/searchButton"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/refresh_icon"/>
+    
+    
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/navheader"
+        layout="@layout/docphin_header" />
+
+    <RelativeLayout
+        android:id="@+id/searchTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/navheader" >
+
+        <EditText
+            android:id="@+id/searchText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/search_feild_bg"
+            android:textSize="15dp"
+            android:ems="10"
+            android:hint="@string/search_text"
+            android:paddingLeft="35dp" >
+        </EditText>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/directoryHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchTextLayout"
+        android:paddingTop="10dp"
+        android:paddingLeft="30dp"
+         android:paddingBottom="10dp"
+        android:text="@string/team_header"
+        android:textColor="@color/lightBlue"
+        android:textSize="15dp" />
+
+    <ImageView
+        android:id="@+id/seperateIMg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/directoryHeader"
+        android:src="@drawable/sepration_line" />
+
+    <ListView
+        android:id="@+id/directoryList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seperateIMg"
+        
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/sepration_line"
+        android:fadingEdge="none" >
+    </ListView>
+
+</RelativeLayout>

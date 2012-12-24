@@ -1,0 +1,36 @@
+<resources>
+
+    <string name="app_name">Docphin</string>
+    <string name="emailFieldLabel">Email</string>
+    <string name="passwordLabel">Password</string>
+    <string name="signUpText">Sign Up</string>
+   
+    <string name="menu_settings">Settings</string>
+    <string name="title_MyMessages">My Messages</string>
+    <string name="title_activity_docphin_login">DocphinLoginActivity</string>
+
+    <string-array name="menu_items">
+        <item>My Messages</item>
+        <item>Starred</item>
+        <item>All Messages</item>
+        <item>My Directory</item>
+        <item>Calendar</item>
+        <item>Quiz</item>
+        <item>Careers/Jobs</item>
+        <item>Check In</item>
+    </string-array>
+    
+    <!-- progress dialog -->
+	<string name="wait">Please wait...</string>
+	<string name="LoadingMessage">Loading...</string>
+    <!-- My Directory -->
+       <string name="search_text">Search</string>
+       <string name="directory_header">My Directory</string>
+       <string name="team_header">My Team</string>
+
+    <!-- URL -->
+    <string name="quiz_URL">https://docphin.polldaddy.com/s/quiz-1?iframe=1</string>
+    <string name="career_URL">https://www.docphin.com/connect/sections/careers.html</string>
+    <string name="checkin_URL">https://www.docphin.com/checkin/</string>
+
+</resources>

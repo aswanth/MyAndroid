@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+     <RelativeLayout 
+        android:id="@+id/headLayout" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <include layout="@layout/docphin_header" />
+    </RelativeLayout> 
+<RelativeLayout 
+        android:id="@+id/webLayout" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_gravity="center"
+        android:layout_below= "@+id/headLayout"
+        >  	
+    <WebView
+        android:id="@+id/checkinWebView"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
