@@ -10,6 +10,7 @@ import javax.microedition.khronos.opengles.GL10;
 import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
+import android.opengl.GLU;
 import android.opengl.Matrix;
 import android.os.SystemClock;
 
@@ -126,13 +127,32 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 	
 	// These still work without volatile, but refreshes are not guaranteed to happen.					
 	public volatile float mDeltaX;					
-	public volatile float mDeltaY;						
+	public volatile float mDeltaY;	
+	
+	//Adding sphere
+	
+	private Sphere mSphere;
+	
+	private float xRot;
+	private float yRot;
+
+	public void setxRot(float xRot) {
+	    this.xRot += xRot;
+	}
+
+	public void setyRot(float yRot) {
+	    this.yRot += yRot;
+	}
+	//Adding sphere
 	
 	/**
 	 * Initialize the model data.
 	 */
 	public LessonSixRenderer(final Context activityContext)
 	{	
+		
+		mSphere = new Sphere(1, 25);
+		
 		mActivityContext = activityContext;
 		
 		// Define points for a cube.		
@@ -385,6 +405,8 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 		// Set the background clear color to black.
 		GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		
+		glUnused.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST); 
+		
 		// Use culling to remove back faces.
 		GLES20.glEnable(GLES20.GL_CULL_FACE);
 		
@@ -459,6 +481,25 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 	{
 		// Set the OpenGL viewport to the same size as the surface.
 		GLES20.glViewport(0, 0, width, height);
+		
+		
+		//Adding sphere
+		
+		if(height == 0) {                       
+	        height = 1;                         
+	    }
+
+	    glUnused.glViewport(0, 0, width, height); 
+	    glUnused.glMatrixMode(GL10.GL_PROJECTION);
+	    glUnused.glLoadIdentity();                
+
+	    //Calculate The Aspect Ratio Of The Window
+	    GLU.gluPerspective(glUnused, 45.0f, (float)width / (float)height, 0.1f, 100.0f);
+
+	    glUnused.glMatrixMode(GL10.GL_MODELVIEW);     //Select The Modelview Matrix
+	    glUnused.glLoadIdentity();
+		
+		//Adding sphere
 
 		// Create a new perspective projection matrix. The height will stay the same
 		// while the width will vary as per aspect ratio.
@@ -568,6 +609,23 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
         // Draw a point to indicate the light.
         GLES20.glUseProgram(mPointProgramHandle);        
         drawLight();
+        
+        //Adding sphere
+        
+//        glUnused.glClear(GL10.GL_COLOR_BUFFER_BIT);   
+//        glUnused.glLoadIdentity();
+//
+//        /**
+//         * Change this value in z if you want to see the image zoomed in
+//         */
+//        glUnused.glTranslatef(0.0f, 0.0f, -5.0f); 
+//
+//        glUnused.glRotatef(xRot, 0.0f, 1.0f, 0.0f);
+//        glUnused.glRotatef(yRot, 1.0f, 0.0f, 0.0f);
+//        mSphere.draw(glUnused);
+        
+        //Adding sphere
+        
 	}	
 	
 	public void setMinFilter(final int filter)
@@ -664,4 +722,5 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 		// Draw the point.
 		GLES20.glDrawArrays(GLES20.GL_POINTS, 0, 1);
 	}
+	
 }
