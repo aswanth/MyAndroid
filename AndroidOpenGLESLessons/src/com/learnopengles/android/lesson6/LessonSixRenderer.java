@@ -131,7 +131,7 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 	
 	//Adding sphere
 	
-	private Sphere mSphere;
+	//private Sphere mSphere;
 	
 	private float xRot;
 	private float yRot;
@@ -151,7 +151,7 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 	public LessonSixRenderer(final Context activityContext)
 	{	
 		
-		mSphere = new Sphere(1, 25);
+		//mSphere = new Sphere(1, 25);
 		
 		mActivityContext = activityContext;
 		
