@@ -1,15 +1,14 @@
 package com.learnopengles.android.lesson6;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Vector;
 
-import com.learnopengles.android.R;
-
 import android.content.Context;
 import android.util.Log;
+
+import com.learnopengles.android.R;
 
 
 
@@ -31,7 +30,7 @@ public class OBJParser {
 		context=ctx;
 	}
 
-	public TDModel parseOBJ(String fileName) {
+	public TDModel parseOBJ() {
 		BufferedReader reader=null;
 		String line = null;
 //		Material m=null;

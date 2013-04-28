@@ -63,6 +63,7 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 	private float[] mLightModelMatrix = new float[16];	
 	
 	/** Store our model data in a float buffer. */
+	private final FloatBuffer mSpherePositions;
 	private final FloatBuffer mCubePositions;	
 	private final FloatBuffer mCubeNormals;
 	private final FloatBuffer mCubeTextureCoordinates;
@@ -133,17 +134,19 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 	
 	//private Sphere mSphere;
 	
-	private float xRot;
-	private float yRot;
-
-	public void setxRot(float xRot) {
-	    this.xRot += xRot;
-	}
-
-	public void setyRot(float yRot) {
-	    this.yRot += yRot;
-	}
+//	private float xRot;
+//	private float yRot;
+//
+//	public void setxRot(float xRot) {
+//	    this.xRot += xRot;
+//	}
+//
+//	public void setyRot(float yRot) {
+//	    this.yRot += yRot;
+//	}
 	//Adding sphere
+	
+	int sphereTriangles;
 	
 	/**
 	 * Initialize the model data.
@@ -382,6 +385,12 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 		};	
 		
 		// Initialize the buffers.
+		float[] spherePositionData = getSpherePositions();
+		
+		mSpherePositions = ByteBuffer.allocateDirect(spherePositionData.length * mBytesPerFloat)
+        .order(ByteOrder.nativeOrder()).asFloatBuffer();							
+		mSpherePositions.put(spherePositionData).position(0);
+		
 		mCubePositions = ByteBuffer.allocateDirect(cubePositionData.length * mBytesPerFloat)
         .order(ByteOrder.nativeOrder()).asFloatBuffer();							
 		mCubePositions.put(cubePositionData).position(0);				
@@ -485,19 +494,19 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 		
 		//Adding sphere
 		
-		if(height == 0) {                       
-	        height = 1;                         
-	    }
-
-	    glUnused.glViewport(0, 0, width, height); 
-	    glUnused.glMatrixMode(GL10.GL_PROJECTION);
-	    glUnused.glLoadIdentity();                
-
-	    //Calculate The Aspect Ratio Of The Window
-	    GLU.gluPerspective(glUnused, 45.0f, (float)width / (float)height, 0.1f, 100.0f);
-
-	    glUnused.glMatrixMode(GL10.GL_MODELVIEW);     //Select The Modelview Matrix
-	    glUnused.glLoadIdentity();
+//		if(height == 0) {                       
+//	        height = 1;                         
+//	    }
+//
+//	    glUnused.glViewport(0, 0, width, height); 
+//	    glUnused.glMatrixMode(GL10.GL_PROJECTION);
+//	    glUnused.glLoadIdentity();                
+//
+//	    //Calculate The Aspect Ratio Of The Window
+//	    GLU.gluPerspective(glUnused, 45.0f, (float)width / (float)height, 0.1f, 100.0f);
+//
+//	    glUnused.glMatrixMode(GL10.GL_MODELVIEW);     //Select The Modelview Matrix
+//	    glUnused.glLoadIdentity();
 		
 		//Adding sphere
 
@@ -582,6 +591,32 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
         
         drawCube();  
         
+      //Draw a sphere
+        Matrix.setIdentityM(mModelMatrix, 0);
+//      Matrix.translateM(mModelMatrix, 0, 0.0f, -2.0f, -5.0f);
+//      Matrix.scaleM(mModelMatrix, 0, -1000.0f, -1000.0f, -1000.0f);
+//      Matrix.rotateM(mModelMatrix, 0, slowAngleInDegrees, 0.0f, 1.0f, 0.0f);
+      
+      // Set the active texture unit to texture unit 0.
+//      GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+      
+      // Bind the texture to this unit.
+//      GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mGrassDataHandle);
+      
+      // Tell the texture uniform sampler to use this texture in the shader by binding to texture unit 0.
+//      GLES20.glUniform1i(mTextureUniformHandle, 0);
+      
+      // Pass in the texture coordinate information
+//      mCubeTextureCoordinatesForPlane.position(0);
+//      GLES20.glVertexAttribPointer(mTextureCoordinateHandle, mTextureCoordinateDataSize, GLES20.GL_FLOAT, false, 
+//      		0, mCubeTextureCoordinatesForPlane);
+      
+//      GLES20.glEnableVertexAttribArray(mTextureCoordinateHandle);
+      
+      drawSphere();
+      
+      //
+        
         // Draw a plane
         Matrix.setIdentityM(mModelMatrix, 0);
         Matrix.translateM(mModelMatrix, 0, 0.0f, -2.0f, -5.0f);
@@ -606,9 +641,15 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
         
         drawCube();
         
+      
+        
         // Draw a point to indicate the light.
         GLES20.glUseProgram(mPointProgramHandle);        
         drawLight();
+        
+
+        
+       
         
         //Adding sphere
         
@@ -698,6 +739,48 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
         // Draw the cube.
         GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 36);                               
 	}			
+	public void drawSphere() {
+		
+//		final int pointMVPMatrixHandle = GLES20.glGetUniformLocation(mPointProgramHandle, "u_MVPMatrix");
+//        final int pointPositionHandle = GLES20.glGetAttribLocation(mPointProgramHandle, "a_Position");
+		
+		// Pass in the position information
+		mSpherePositions.position(0);		
+        GLES20.glVertexAttribPointer(mPositionHandle, mPositionDataSize, GLES20.GL_FLOAT, false,
+        		0, mSpherePositions);        
+                
+        GLES20.glEnableVertexAttribArray(mPositionHandle);                       
+        
+        // Pass in the normal information
+//        mCubeNormals.position(0);
+//        GLES20.glVertexAttribPointer(mNormalHandle, mNormalDataSize, GLES20.GL_FLOAT, false, 
+//        		0, mCubeNormals);
+//        
+//        GLES20.glEnableVertexAttribArray(mNormalHandle);                
+        
+		// This multiplies the view matrix by the model matrix, and stores the result in the MVP matrix
+        // (which currently contains model * view).
+        Matrix.multiplyMM(mMVPMatrix, 0, mViewMatrix, 0, mModelMatrix, 0);   
+        
+        // Pass in the modelview matrix.
+        GLES20.glUniformMatrix4fv(mMVMatrixHandle, 1, false, mMVPMatrix, 0);                
+        
+        // This multiplies the modelview matrix by the projection matrix, and stores the result in the MVP matrix
+        // (which now contains model * view * projection).        
+        Matrix.multiplyMM(mTemporaryMatrix, 0, mProjectionMatrix, 0, mMVPMatrix, 0);
+        System.arraycopy(mTemporaryMatrix, 0, mMVPMatrix, 0, 16);
+
+        // Pass in the combined matrix.
+        GLES20.glUniformMatrix4fv(mMVPMatrixHandle, 1, false, mMVPMatrix, 0);
+        
+        // Pass in the light position in eye space.        
+        GLES20.glUniform3f(mLightPosHandle, mLightPosInEyeSpace[0], mLightPosInEyeSpace[1], mLightPosInEyeSpace[2]);
+        
+        // Draw the sphere.
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, sphereTriangles * 3);                               
+	
+		
+	}
 	
 	/**
 	 * Draws a point representing the position of the light.
@@ -721,6 +804,29 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 		
 		// Draw the point.
 		GLES20.glDrawArrays(GLES20.GL_POINTS, 0, 1);
+	}
+	public float[] getSpherePositions() {
+		
+		TDModel sphereData = new OBJParser(mActivityContext).parseOBJ();
+		
+		sphereTriangles = sphereData.faces.size();
+		
+		float[] spherePositions = new float[sphereTriangles * 3];
+		int j = 0, v;
+		for(int i = 0; i < sphereTriangles; i++){
+			
+			v = sphereData.faces.get(i);
+			spherePositions[j] = sphereData.v.get(v*3);
+			j++;
+			spherePositions[j] = sphereData.v.get(v*3 + 1);
+			j++;
+			spherePositions[j] = sphereData.v.get(v*3 + 2);
+			j++;
+			
+			
+		}
+		
+		return spherePositions;
 	}
 	
 }
