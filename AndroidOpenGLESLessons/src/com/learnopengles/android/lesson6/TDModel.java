@@ -8,10 +8,10 @@ import java.util.Vector;
 import javax.microedition.khronos.opengles.GL10;
 
 public class TDModel {
-	Vector<Float> v;
-	Vector<Float> vn;
-	Vector<Float> vt;
-	Vector<Short> faces=new Vector<Short>();
+	public Vector<Float> v;
+	public Vector<Float> vn;
+	public Vector<Float> vt;
+	public Vector<Short> faces=new Vector<Short>();
 //	Vector<TDModelPart> parts;
 	FloatBuffer vertexBuffer;
 

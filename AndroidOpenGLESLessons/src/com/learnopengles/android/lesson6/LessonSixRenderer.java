@@ -383,13 +383,16 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
 				25.0f, 25.0f,
 				25.0f, 0.0f
 		};	
+		float[] triangleData =  { -1.0f, 1.0f, 1.0f,				
+				-1.0f, -1.0f, 1.0f,
+				1.0f, 1.0f, 1.0f,  };
 		
 		// Initialize the buffers.
 		float[] spherePositionData = getSpherePositions();
 		
-		mSpherePositions = ByteBuffer.allocateDirect(spherePositionData.length * mBytesPerFloat)
+		mSpherePositions = ByteBuffer.allocateDirect(triangleData.length * mBytesPerFloat)
         .order(ByteOrder.nativeOrder()).asFloatBuffer();							
-		mSpherePositions.put(spherePositionData).position(0);
+		mSpherePositions.put(triangleData).position(0);
 		
 		mCubePositions = ByteBuffer.allocateDirect(cubePositionData.length * mBytesPerFloat)
         .order(ByteOrder.nativeOrder()).asFloatBuffer();							
@@ -592,7 +595,7 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
         drawCube();  
         
       //Draw a sphere
-        Matrix.setIdentityM(mModelMatrix, 0);
+//        Matrix.setIdentityM(mModelMatrix, 0);
 //      Matrix.translateM(mModelMatrix, 0, 0.0f, -2.0f, -5.0f);
 //      Matrix.scaleM(mModelMatrix, 0, -1000.0f, -1000.0f, -1000.0f);
 //      Matrix.rotateM(mModelMatrix, 0, slowAngleInDegrees, 0.0f, 1.0f, 0.0f);
@@ -613,7 +616,7 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
       
 //      GLES20.glEnableVertexAttribArray(mTextureCoordinateHandle);
       
-      drawSphere();
+      //drawSphere();
       
       //
         
@@ -749,7 +752,11 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
         GLES20.glVertexAttribPointer(mPositionHandle, mPositionDataSize, GLES20.GL_FLOAT, false,
         		0, mSpherePositions);        
                 
-        GLES20.glEnableVertexAttribArray(mPositionHandle);                       
+        GLES20.glEnableVertexAttribArray(mPositionHandle);       
+        
+        GLES20.glDisableVertexAttribArray(mNormalHandle);
+        GLES20.glDisableVertexAttribArray(mTextureCoordinateHandle);
+        GLES20.glDisableVertexAttribArray(mTextureUniformHandle);
         
         // Pass in the normal information
 //        mCubeNormals.position(0);
@@ -777,7 +784,7 @@ public class LessonSixRenderer implements GLSurfaceView.Renderer
         GLES20.glUniform3f(mLightPosHandle, mLightPosInEyeSpace[0], mLightPosInEyeSpace[1], mLightPosInEyeSpace[2]);
         
         // Draw the sphere.
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, sphereTriangles * 3);                               
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 3);                               
 	
 		
 	}

@@ -7,6 +7,10 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import com.learnopengles.android.lesson6.OBJParser;
+import com.learnopengles.android.lesson6.TDModel;
+
+import android.app.Activity;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
@@ -39,7 +43,7 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
 	/** Store our model data in a float buffer. */
 	private final FloatBuffer mTriangle1Vertices;
 	private final FloatBuffer mTriangle2Vertices;
-	private final FloatBuffer mTriangle3Vertices;
+	private final FloatBuffer mTriangle3Vertices, mSpherePositions;
 
 	/** This will be used to pass in the transformation matrix. */
 	private int mMVPMatrixHandle;
@@ -66,13 +70,17 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
 	private final int mColorOffset = 3;
 	
 	/** Size of the color data in elements. */
-	private final int mColorDataSize = 4;		
+	private final int mColorDataSize = 4;	
+	private Activity mContext;
+	private int sphereTriangles;
 				
 	/**
 	 * Initialize the model data.
 	 */
-	public LessonOneRenderer()
+	public LessonOneRenderer(Activity context)
 	{	
+		
+		mContext = context;
 		// Define points for equilateral triangles.
 		
 		// This triangle is red, green, and blue.
@@ -115,6 +123,12 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
 	            0.0f, 0.0f, 0.0f, 1.0f};
 		
 		// Initialize the buffers.
+		float[] spherePositionData = getSpherePositions();
+		
+		mSpherePositions = ByteBuffer.allocateDirect(spherePositionData.length * mBytesPerFloat)
+        .order(ByteOrder.nativeOrder()).asFloatBuffer();							
+		mSpherePositions.put(spherePositionData).position(0);
+		
 		mTriangle1Vertices = ByteBuffer.allocateDirect(triangle1VerticesData.length * mBytesPerFloat)
         .order(ByteOrder.nativeOrder()).asFloatBuffer();
 		mTriangle2Vertices = ByteBuffer.allocateDirect(triangle2VerticesData.length * mBytesPerFloat)
@@ -325,6 +339,11 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
         Matrix.rotateM(mModelMatrix, 0, 90.0f, 0.0f, 1.0f, 0.0f);
         Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 0.0f, 0.0f, 1.0f);
         drawTriangle(mTriangle3Vertices);
+        
+        Matrix.setIdentityM(mModelMatrix, 0);
+        Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 0.0f, 0.0f, 1.0f);        
+        drawSphere(mSpherePositions);
+        
 	}	
 	
 	/**
@@ -360,4 +379,54 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
         GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 3);           
         
 	}
+	public void drawSphere(final FloatBuffer aSphereBuffer) {
+		aSphereBuffer.position(mPositionOffset);
+        GLES20.glVertexAttribPointer(mPositionHandle, mPositionDataSize, GLES20.GL_FLOAT, false,
+        		0, aSphereBuffer);        
+                
+        GLES20.glEnableVertexAttribArray(mPositionHandle);        
+        
+        // Pass in the color information
+//        aTriangleBuffer.position(mColorOffset);
+//        GLES20.glVertexAttribPointer(mColorHandle, mColorDataSize, GLES20.GL_FLOAT, false,
+//        		mStrideBytes, aTriangleBuffer);        
+//        
+//        GLES20.glEnableVertexAttribArray(mColorHandle);
+        
+		// This multiplies the view matrix by the model matrix, and stores the result in the MVP matrix
+        // (which currently contains model * view).
+        Matrix.multiplyMM(mMVPMatrix, 0, mViewMatrix, 0, mModelMatrix, 0);
+        
+        // This multiplies the modelview matrix by the projection matrix, and stores the result in the MVP matrix
+        // (which now contains model * view * projection).
+        Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mMVPMatrix, 0);
+
+        GLES20.glUniformMatrix4fv(mMVPMatrixHandle, 1, false, mMVPMatrix, 0);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 3);
+	}
+	
+	public float[] getSpherePositions() {
+		
+		TDModel sphereData = new OBJParser(mContext).parseOBJ();
+		
+		sphereTriangles = sphereData.faces.size();
+		
+		float[] spherePositions = new float[sphereTriangles * 3];
+		int j = 0, v;
+		for(int i = 0; i < sphereTriangles; i++){
+			
+			v = sphereData.faces.get(i);
+			spherePositions[j] = sphereData.v.get(v*3);
+			j++;
+			spherePositions[j] = sphereData.v.get(v*3 + 1);
+			j++;
+			spherePositions[j] = sphereData.v.get(v*3 + 2);
+			j++;
+			
+			
+		}
+		
+		return spherePositions;
+	}
+	
 }
