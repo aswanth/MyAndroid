@@ -13,6 +13,7 @@ import com.learnopengles.android.lesson6.TDModel;
 import android.app.Activity;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
+import android.opengl.GLU;
 import android.opengl.Matrix;
 import android.os.SystemClock;
 
@@ -73,6 +74,14 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
 	private final int mColorDataSize = 4;	
 	private Activity mContext;
 	private int sphereTriangles;
+	private TDModel tdmodel;
+	
+	private float[] lightAmbient = {1.0f, 1.0f, 1.0f, 1.0f};
+	private float[] lightDiffuse = {1.0f, 1.0f, 1.0f, 1.0f};
+	private float[] lightPosition = {0.0f, -3.0f, 2.0f, 1.0f};
+	private FloatBuffer lightAmbientBuffer;
+	private FloatBuffer lightDiffuseBuffer;
+	private FloatBuffer lightPositionBuffer;
 				
 	/**
 	 * Initialize the model data.
@@ -144,6 +153,8 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
 	@Override
 	public void onSurfaceCreated(GL10 glUnused, EGLConfig config) 
 	{
+		
+		SurfaceCreated(glUnused, config);
 		// Set the background clear color to gray.
 		GLES20.glClearColor(0.5f, 0.5f, 0.5f, 0.5f);
 	
@@ -310,6 +321,8 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
 		final float far = 10.0f;
 		
 		Matrix.frustumM(mProjectionMatrix, 0, left, right, bottom, top, near, far);
+		
+		SurfaceChanged(glUnused, width, height);
 	}	
 
 	@Override
@@ -320,6 +333,14 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
         // Do a complete rotation every 10 seconds.
         long time = SystemClock.uptimeMillis() % 10000L;
         float angleInDegrees = (360.0f / 10000.0f) * ((int) time);
+        
+//        Matrix.setIdentityM(mModelMatrix, 0);
+//        Matrix.translateM(mModelMatrix, 0, 0.0f, -1.0f, -50.0f);
+//        Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 0.0f, 0.0f, 1.0f);        
+//        drawSphere(mSpherePositions);
+        DrawFrame(glUnused);
+        
+//        tdmodel.draw(glUnused);
         
         // Draw the triangle facing straight on.
         Matrix.setIdentityM(mModelMatrix, 0);
@@ -340,9 +361,7 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
         Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 0.0f, 0.0f, 1.0f);
         drawTriangle(mTriangle3Vertices);
         
-        Matrix.setIdentityM(mModelMatrix, 0);
-        Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 0.0f, 0.0f, 1.0f);        
-        drawSphere(mSpherePositions);
+        
         
 	}	
 	
@@ -361,11 +380,11 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
         GLES20.glEnableVertexAttribArray(mPositionHandle);        
         
         // Pass in the color information
-        aTriangleBuffer.position(mColorOffset);
-        GLES20.glVertexAttribPointer(mColorHandle, mColorDataSize, GLES20.GL_FLOAT, false,
-        		mStrideBytes, aTriangleBuffer);        
-        
-        GLES20.glEnableVertexAttribArray(mColorHandle);
+//        aTriangleBuffer.position(mColorOffset);
+//        GLES20.glVertexAttribPointer(mColorHandle, mColorDataSize, GLES20.GL_FLOAT, false,
+//        		mStrideBytes, aTriangleBuffer);        
+//        
+//        GLES20.glEnableVertexAttribArray(mColorHandle);
         
 		// This multiplies the view matrix by the model matrix, and stores the result in the MVP matrix
         // (which currently contains model * view).
@@ -402,12 +421,88 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mMVPMatrix, 0);
 
         GLES20.glUniformMatrix4fv(mMVPMatrixHandle, 1, false, mMVPMatrix, 0);
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 3);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, sphereTriangles * 3);
+	}
+	
+	public void SurfaceCreated(GL10 gl, EGLConfig config) {
+		gl.glLightfv(GL10.GL_LIGHT0, GL10.GL_AMBIENT, lightAmbientBuffer);		
+		gl.glLightfv(GL10.GL_LIGHT0, GL10.GL_DIFFUSE, lightDiffuseBuffer);		
+		gl.glLightfv(GL10.GL_LIGHT0, GL10.GL_POSITION, lightPositionBuffer);	
+		gl.glEnable(GL10.GL_LIGHT0);
+									
+		
+		gl.glShadeModel(GL10.GL_SMOOTH); 			
+		gl.glClearColor(0.0f, 0.0f, 0.0f, 0.5f); 	
+		gl.glClearDepthf(1.0f); 					
+		gl.glEnable(GL10.GL_DEPTH_TEST); 			
+		gl.glDepthFunc(GL10.GL_LEQUAL); 		
+	
+		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST); 
+	}
+
+	/**
+	 * Here we do our drawing
+	 */
+	public void DrawFrame(GL10 gl) {
+		//Clear Screen And Depth Buffer
+		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);	
+		gl.glLoadIdentity();					
+		gl.glEnable(GL10.GL_LIGHTING);
+		gl.glTranslatef(0.0f, -1.2f, -50.0f);	//Move down 1.2 Unit And Into The Screen 6.0
+//		gl.glRotatef(xrot, 1.0f, 0.0f, 0.0f);	//X
+//		gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f);	//Y
+		tdmodel.draw(gl);						//Draw the square
+		gl.glLoadIdentity();
+		
+//		xrot += xspeed;
+//		yrot += yspeed;
+		
+	}
+
+	/**
+	 * If the surface changes, reset the view
+	 */
+	public void SurfaceChanged(GL10 gl, int width, int height) {
+		if(height == 0) { 						//Prevent A Divide By Zero By
+			height = 1; 						//Making Height Equal One
+		}
+
+		gl.glViewport(0, 0, width, height); 	//Reset The Current Viewport
+		gl.glMatrixMode(GL10.GL_PROJECTION); 	//Select The Projection Matrix
+		gl.glLoadIdentity(); 					//Reset The Projection Matrix
+
+		//Calculate The Aspect Ratio Of The Window
+		GLU.gluPerspective(gl, 45.0f, (float)width / (float)height, 0.1f, 500.0f);
+
+		gl.glMatrixMode(GL10.GL_MODELVIEW); 	//Select The Modelview Matrix
+		gl.glLoadIdentity(); 					//Reset The Modelview Matrix
+	}
+	
+	public void  init() {
+		ByteBuffer byteBuf = ByteBuffer.allocateDirect(lightAmbient.length * 4);
+		byteBuf.order(ByteOrder.nativeOrder());
+		lightAmbientBuffer = byteBuf.asFloatBuffer();
+		lightAmbientBuffer.put(lightAmbient);
+		lightAmbientBuffer.position(0);
+		
+		byteBuf = ByteBuffer.allocateDirect(lightDiffuse.length * 4);
+		byteBuf.order(ByteOrder.nativeOrder());
+		lightDiffuseBuffer = byteBuf.asFloatBuffer();
+		lightDiffuseBuffer.put(lightDiffuse);
+		lightDiffuseBuffer.position(0);
+		
+		byteBuf = ByteBuffer.allocateDirect(lightPosition.length * 4);
+		byteBuf.order(ByteOrder.nativeOrder());
+		lightPositionBuffer = byteBuf.asFloatBuffer();
+		lightPositionBuffer.put(lightPosition);
+		lightPositionBuffer.position(0);
 	}
 	
 	public float[] getSpherePositions() {
 		
 		TDModel sphereData = new OBJParser(mContext).parseOBJ();
+		
+		tdmodel = sphereData;
 		
 		sphereTriangles = sphereData.faces.size();
 		

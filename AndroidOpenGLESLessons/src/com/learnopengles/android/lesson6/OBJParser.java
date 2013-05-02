@@ -23,8 +23,8 @@ public class OBJParser {
 	Vector<Float> v=new Vector<Float>();
 	Vector<Float> vn=new Vector<Float>();
 	Vector<Float> vt=new Vector<Float>();
-//	Vector<TDModelPart> parts=new Vector<TDModelPart>();
-//	Vector<Material> materials=null;
+	Vector<TDModelPart> parts=new Vector<TDModelPart>();
+	Vector<Material> materials=null;
 
 	public OBJParser(Context ctx){
 		context=ctx;
@@ -33,7 +33,7 @@ public class OBJParser {
 	public TDModel parseOBJ() {
 		BufferedReader reader=null;
 		String line = null;
-//		Material m=null;
+		Material m=null;
 
 		try { //try to open file
 //			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
@@ -95,11 +95,11 @@ public class OBJParser {
 		catch(IOException e){
 			System.out.println("wtf...");
 		}
-//		if(faces!= null){//if not this is not the start of the first group
-//			TDModelPart model=new TDModelPart(faces, vtPointer, vnPointer, m,vn);
-//			parts.add(model);
-//		}
-		TDModel t=new TDModel(v,vn,vt, faces);
+		if(faces!= null){//if not this is not the start of the first group
+			TDModelPart model=new TDModelPart(faces, vtPointer, vnPointer, m,vn);
+			parts.add(model);
+		}
+		TDModel t=new TDModel(v,vn,vt, faces, parts);
 		t.buildVertexBuffer();
 		Log.v("models",t.toString());
 		return t;

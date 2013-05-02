@@ -3,6 +3,7 @@ package com.learnopengles.android.lesson6;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -12,16 +13,16 @@ public class TDModel {
 	public Vector<Float> vn;
 	public Vector<Float> vt;
 	public Vector<Short> faces=new Vector<Short>();
-//	Vector<TDModelPart> parts;
+	Vector<TDModelPart> parts;
 	FloatBuffer vertexBuffer;
 
-	public TDModel(Vector<Float> v, Vector<Float> vn, Vector<Float> vt, Vector<Short> f) {
+	public TDModel(Vector<Float> v, Vector<Float> vn, Vector<Float> vt, Vector<Short> f, Vector<TDModelPart> parts) {
 		super();
 		this.v = v;
 		this.vn = vn;
 		this.vt = vt;
 		this.faces = f;
-//		this.parts = parts;
+		this.parts = parts;
 	}
 	public String toString(){
 		String str=new String();
@@ -41,24 +42,24 @@ public class TDModel {
 		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 		
-//		for(int i=0; i<parts.size(); i++){
-//			TDModelPart t=parts.get(i);
-//			Material m=t.getMaterial();
-//			if(m!=null){
-//				FloatBuffer a=m.getAmbientColorBuffer();
-//				FloatBuffer d=m.getDiffuseColorBuffer();
-//				FloatBuffer s=m.getSpecularColorBuffer();
-//				gl.glMaterialfv(GL10.GL_FRONT_AND_BACK,GL10.GL_AMBIENT,a);
-//				gl.glMaterialfv(GL10.GL_FRONT_AND_BACK,GL10.GL_SPECULAR,s);
-//				gl.glMaterialfv(GL10.GL_FRONT_AND_BACK,GL10.GL_DIFFUSE,d);
-//			}
-//			gl.glEnableClientState(GL10.GL_NORMAL_ARRAY);
-//			gl.glNormalPointer(GL10.GL_FLOAT, 0, t.getNormalBuffer());
-//			gl.glDrawElements(GL10.GL_TRIANGLES,t.getFacesCount(),GL10.GL_UNSIGNED_SHORT,t.getFaceBuffer());
-//			//gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
-//			//gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
-//			gl.glDisableClientState(GL10.GL_NORMAL_ARRAY);
-//		}
+		for(int i=0; i<parts.size(); i++){
+			TDModelPart t=parts.get(i);
+			Material m=t.getMaterial();
+			if(m!=null){
+				FloatBuffer a=m.getAmbientColorBuffer();
+				FloatBuffer d=m.getDiffuseColorBuffer();
+				FloatBuffer s=m.getSpecularColorBuffer();
+				gl.glMaterialfv(GL10.GL_FRONT_AND_BACK,GL10.GL_AMBIENT,a);
+				gl.glMaterialfv(GL10.GL_FRONT_AND_BACK,GL10.GL_SPECULAR,s);
+				gl.glMaterialfv(GL10.GL_FRONT_AND_BACK,GL10.GL_DIFFUSE,d);
+			}
+			gl.glEnableClientState(GL10.GL_NORMAL_ARRAY);
+			gl.glNormalPointer(GL10.GL_FLOAT, 0, t.getNormalBuffer());
+			gl.glDrawElements(GL10.GL_TRIANGLES,t.getFacesCount(),GL10.GL_UNSIGNED_SHORT,t.getFaceBuffer());
+			//gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+			//gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
+			gl.glDisableClientState(GL10.GL_NORMAL_ARRAY);
+		}
 	}
 	public void buildVertexBuffer(){
 		ByteBuffer vBuf = ByteBuffer.allocateDirect(v.size() * 4);
