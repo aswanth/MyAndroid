@@ -1,13 +1,14 @@
-package com.example.objLoader;
+package com.learnopengles.android.lesson6;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Vector;
 
 import android.content.Context;
 import android.util.Log;
+
+import com.learnopengles.android.R;
 
 
 
@@ -29,7 +30,7 @@ public class OBJParser {
 		context=ctx;
 	}
 
-	public TDModel parseOBJ(String fileName) {
+	public TDModel parseOBJ() {
 		BufferedReader reader=null;
 		String line = null;
 		Material m=null;
@@ -98,7 +99,7 @@ public class OBJParser {
 			TDModelPart model=new TDModelPart(faces, vtPointer, vnPointer, m,vn);
 			parts.add(model);
 		}
-		TDModel t=new TDModel(v,vn,vt,parts);
+		TDModel t=new TDModel(v,vn,vt, faces, parts);
 		t.buildVertexBuffer();
 		Log.v("models",t.toString());
 		return t;
