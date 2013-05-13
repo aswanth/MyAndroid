@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/overlay_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:gravity="center_horizontal" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/map_overlay"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/name_textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_toLeftOf="@+id/refocus_btn"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/address_textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name_textView"
+                android:layout_marginTop="1dp"
+                android:layout_toLeftOf="@+id/refocus_btn"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/refocus_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:onClick="refocusButtonClick"
+                android:src="@drawable/map_refocus_icon" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <com.google.android.maps.MapView
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/buttonLayout"
+        android:layout_below="@+id/overlay_layout"
+        android:apiKey="@string/map_api_key"
+        android:clickable="true" />
+
+    <RelativeLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:gravity="center_horizontal" >
+
+        <ImageButton
+            android:id="@+id/jobDetailBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:onClick="onJobDetailBtnClick"
+            android:src="@drawable/job_details" />
+
+        <ImageButton
+            android:id="@+id/collectedBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@+id/jobDetailBtn"
+            android:background="@null"
+            android:onClick="onCollectedBtnClick"
+            android:src="@drawable/collect_button_selector" />
+    </RelativeLayout>
+
+</RelativeLayout>

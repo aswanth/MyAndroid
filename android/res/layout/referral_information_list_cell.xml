@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" android:minHeight="30dp">
+
+    <ImageView
+        android:id="@+id/sepLeft"
+        android:layout_width="2dp"
+        android:layout_height="63dp"
+        android:minHeight="30dp"
+        android:layout_alignParentLeft="true"
+        style="?seperatorColor" 
+                android:scaleType="fitXY"
+        />
+
+    <ImageView
+        android:id="@+id/sepRight"
+        android:layout_width="2dp"
+        android:layout_height="63dp"
+                android:minHeight="30dp"
+        android:scaleType="fitXY"
+        android:layout_alignParentRight="true"
+        style="?seperatorColor" />
+
+    <ImageView
+        android:id="@+id/sepTop"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentTop="true"
+        style="?seperatorColor" 
+                android:scaleType="fitXY"
+        />
+
+    <ImageView
+        android:id="@+id/sepBottom"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentBottom="true"
+        style="?seperatorColor" 
+                android:scaleType="fitXY"
+        />
+
+    <ImageView
+        android:id="@+id/sepCenter"
+        android:layout_width="2dp"
+        android:layout_height="63dp"
+                android:minHeight="30dp"
+        
+        android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+        
+        style="?seperatorColor" 
+                android:scaleType="fitXY"
+        />
+    <TextView 
+                android:id="@+id/fullText"
+                        style="?text"
+        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="Refer a driver - Earn 0.5% commisssion"
+        android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+        />
+       <TextView 
+                android:id="@+id/LeftText"
+                        style="?text"
+        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="Refer a driver - Earn 0.5% commisssion"
+        android:layout_margin="7dp"
+        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/sepCenter"
+                        android:gravity="center_horizontal"
+        
+        
+        />
+        <TextView 
+                android:id="@+id/RightText"
+                        style="?text"
+        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="Refer a driver - Earn 0.5% commisssion"
+             android:layout_margin="7dp"
+
+        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/sepCenter"
+                                                android:gravity="center_horizontal"
+                        
+        
+        
+        />
+
+</RelativeLayout>

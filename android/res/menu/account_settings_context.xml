@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item
+        android:id="@+id/menu_account_info"
+        android:title="@string/account_info_title"/>
+     
+    <item
+        android:id="@+id/menu_maintain_address"
+        android:title="@string/maintain_address_menu_title"/>
+ 
+    <item
+        android:id="@+id/menu_printer_config"
+        android:title="@string/printer_configure_menu_title"/>
+</menu>
+

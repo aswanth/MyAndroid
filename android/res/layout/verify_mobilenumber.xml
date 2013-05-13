@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mobileLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <EditText
+        android:id="@+id/mobileEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:maxLines="1"
+        android:singleLine="true" 
+        android:inputType="phone"
+/>
+
+    <Button
+        android:id="@+id/continueBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mobileEditText"
+        android:layout_centerHorizontal="true"
+        android:enabled="false"
+        android:onClick="continueBtnClicked"
+        android:text="Continue" />
+
+</RelativeLayout>

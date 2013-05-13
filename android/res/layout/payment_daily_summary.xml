@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?mainBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:shadowColor="#363636"
+            android:shadowDy="1"
+            android:text="@string/payment_history_summary_page_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeTheme"
+            android:layout_marginRight="5dp" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/title_layout" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            style = "?dailyHistorytopBG"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/textView1"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:text="@string/payment_time"
+                android:textStyle="bold" >
+            </TextView>
+            
+             <TextView
+                android:id="@+id/textView2"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView1"
+                android:layout_alignBottom="@+id/textView1"
+                android:layout_marginLeft="50dp"
+                android:layout_toRightOf="@+id/textView1"
+                android:layout_centerVertical="true"
+                android:text="@string/payment_fare"
+                android:textStyle="bold" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/textView3"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView2"
+                android:layout_alignBottom="@+id/textView2"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:text="@string/payment_settling"
+                android:layout_centerVertical="true"
+                android:textStyle="bold" >
+            </TextView>
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:id="@+id/relativeLayout3"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_below="@+id/relativeLayout2"
+            style="?dailyHistorymiddleBG"
+            android:layout_above="@+id/relativeLayout4">
+
+            <ListView
+                android:id="@+id/listDailySummary"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:cacheColorHint="#00000000"
+                android:divider="@android:color/transparent"
+                android:fadingEdge="none"
+                android:layout_marginTop="5dp" >
+            </ListView>
+        </RelativeLayout>
+        
+         <RelativeLayout
+            android:id="@+id/relativeLayout4"
+            android:layout_width="fill_parent"
+            android:layout_height="120dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentBottom="true"
+            style="?dailyHistorybottomBG">
+
+             <TextView
+                android:id="@+id/textView4"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dp"
+                android:text="@string/payment_total"
+                android:textSize="20dp"
+                android:textStyle="bold" 
+                android:layout_marginTop="5dp">
+            </TextView>
+            
+            <TextView
+                android:id="@+id/paidToAccountTV"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView4"
+                android:layout_alignLeft="@+id/textView4"
+                android:textSize="15dp"
+                android:textStyle="bold" 
+                android:layout_marginTop="20dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/meterFareTotalTv"
+                style="?pricesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:paddingRight="5dp"
+                android:paddingBottom="1dp"
+                android:textSize="20dp"
+                android:textStyle="bold" 
+                android:layout_marginTop="5dp">
+            </TextView>
+            
+             <TextView
+                android:id="@+id/textPaymentTotal"
+                style="?pricesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView4"
+                android:layout_alignBottom="@+id/textView4"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:gravity="right"
+                android:textSize="20dp"
+                android:textStyle="bold" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/textCF"
+                style="?greyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textPaymentTotal"
+                android:layout_marginRight="15dp"
+                android:textSize="15dp"
+                android:paddingBottom="5dp"
+                android:maxLines="1"
+                android:singleLine="true">
+            </TextView>
+            
+            <ImageButton
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:layout_alignParentBottom="true"
+            	android:background="@drawable/print_button" 
+            	android:layout_centerHorizontal="true"
+            	android:onClick="onPrintButtonClick"
+            	android:layout_marginBottom="8dp"/>
+        </RelativeLayout>
+</RelativeLayout>
+</RelativeLayout>

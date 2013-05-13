@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@drawable/job_list_header"
+              android:padding="10dp">
+    <TextView android:text="DropOff/PickUp"
+              android:layout_height="fill_parent"
+              android:layout_width="150dp"
+              android:textColor="#ffffff"
+              android:layout_alignParentLeft="true"
+              ></TextView>
+    <TextView android:text="Extra"
+              android:layout_height="fill_parent"
+              android:layout_width="wrap_content"
+              android:textColor="#ffffff"
+              android:layout_alignParentRight="true"
+              ></TextView>
+
+</RelativeLayout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:background="@android:color/transparent" >
+
+    <RelativeLayout
+        android:id="@+id/nameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp" >
+
+        <TextView
+            android:id="@+id/nameLabel"
+            style="?text"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Name"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+<!--         <TextView -->
+<!--             android:id="@+id/colon1" -->
+<!--             style="?text" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text=":" -->
+<!--             android:layout_toRightOf="@+id/nameLabel" -->
+<!--             android:textSize="14sp" -->
+<!--             android:textStyle="bold" /> -->
+
+        <TextView
+            android:id="@+id/name"
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/nameLabel"
+            android:layout_marginLeft="10dp"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/NumberLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameLayout"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp" >
+
+        <TextView
+            android:id="@+id/numberLabel"
+            style="?text"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Number"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        
+<!--          <TextView -->
+<!--             android:id="@+id/colon2" -->
+<!--             style="?text" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text=":" -->
+<!--             android:layout_toRightOf="@+id/numberLabel" -->
+<!--             android:textSize="14sp" -->
+<!--             android:textStyle="bold" /> -->
+
+        <TextView
+            android:id="@+id/number"
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/numberLabel"
+            android:layout_marginLeft="10dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+             />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/BalanceLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/NumberLayout"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp" >
+
+        <TextView
+            android:id="@+id/balanceLabel"
+            style="?text"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Balance"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+<!--         <TextView -->
+<!--             android:id="@+id/colon3" -->
+<!--             style="?text" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text=":" -->
+<!--             android:layout_toRightOf="@+id/balanceLabel" -->
+<!--             android:textSize="14sp" -->
+<!--             android:textStyle="bold" /> -->
+
+        <TextView
+            android:id="@+id/balance"
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/balanceLabel"
+            android:layout_marginLeft="10dp"
+            android:textSize="14sp"
+            android:textStyle="bold" 
+            />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/BalanceAreAtLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/BalanceLayout"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp" >
+
+        <TextView
+            android:id="@+id/balanceAreATLabel"
+            style="?text"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Balance As At"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+<!--         <TextView -->
+<!--             android:id="@+id/colon4" -->
+<!--             style="?text" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text=":" -->
+<!--             android:layout_toRightOf="@+id/balanceAreATLabel" -->
+<!--             android:textSize="14sp" -->
+<!--             android:textStyle="bold" /> -->
+
+        <TextView
+            android:id="@+id/balanceAsAt"
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/balanceAreATLabel"
+            android:layout_marginLeft="10dp"
+            android:textSize="14sp"
+            android:textStyle="bold" 
+            />
+    </RelativeLayout>
+    
+    
+    <ImageView
+            android:id="@+id/seperator"
+            style="?accountInfoNewListingSeprator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BalanceAreAtLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+</RelativeLayout>

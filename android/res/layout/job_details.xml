@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?jobDetailsBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="@string/job_details_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeThemeFromJobDetails" />
+    </RelativeLayout>
+
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recalljob_messages_layout"
+        android:layout_above="@+id/noshow_collect_button_layout"
+        android:layout_marginBottom="10dp">
+    
+    <RelativeLayout   
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        
+    <RelativeLayout
+        android:id="@+id/passengerLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <TextView
+            android:id="@+id/jPassengerNameLabel"
+            style="?greyHeading"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="left"
+            android:text="@string/passenger_label"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/job_details_passenger_prompt_name"
+            style="?text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jPassengerNameLabel"
+            android:layout_marginLeft="15dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textSize="22dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rewardLayout"
+        style="?text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passengerLayout"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:id="@+id/pickedUpHeading"
+            style="?greyHeading"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="left"
+            android:text="@string/reward_label"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+         <TextView
+            android:id="@+id/rewardLabel"
+            style="?pickUpAddress"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pickedUpHeading"
+            android:layout_marginLeft="15dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text=""
+            android:textSize="22dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pickupLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rewardLayout"
+        android:layout_marginTop="3dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <TextView
+            android:id="@+id/jPickUpLabel"
+            style="?greyHeading"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="left"
+            android:text="@string/pickup_label"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            style="?greyHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:gravity="right"
+            android:paddingTop="3dp"
+            android:text="@string/see_map_text"
+            android:textSize="14dp" />
+
+        <RelativeLayout
+            android:id="@+id/job_details_passenger_pickup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jPickUpLabel"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/pick_up_selector"
+            android:onClick="onSeeMapBtnClick" >
+
+            <TextView
+                android:id="@+id/job_details_passenger_pickup_labelname"
+                style="?pickUpAddress"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:maxLines="3"
+                android:textSize="22dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/dropOffLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pickupLayout"
+        android:layout_marginTop="3dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <TextView
+            android:id="@+id/jDropOffLabel"
+            style="?greyHeading"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="left"
+            android:text="@string/dropoff_label"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/job_details_dropoff_prompt_name"
+            style="?text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jDropOffLabel"
+            android:layout_marginLeft="15dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textSize="22dp" />
+    </RelativeLayout>
+    
+    </RelativeLayout> 
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/noshow_collect_button_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="5dp" >
+
+        <Button
+            android:id="@+id/noshow_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/noshow_button_selector"
+            android:onClick="onNoshowButtonClick" />
+
+       <!--  <Button
+            android:id="@+id/complete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/complete_button_selector"
+            android:onClick="onCompletedButtonClick" /> -->
+
+        <ImageButton
+            android:id="@+id/collect_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="4dp"
+            android:src="@drawable/collect_button_selector"
+            android:onClick="onCollectedButtonClick"
+            android:background="@null"
+			/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/recalljob_messages_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/statusLayout"
+        android:layout_marginBottom="3dp"
+        android:paddingBottom="3dp" >
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/recall_btn_selector"
+            android:onClick="onCancelButtonClick" />
+
+        <Button
+            android:id="@+id/message_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/messages_button_selector"
+            android:onClick="onMessagesButtonClick" >
+        </Button>
+
+        <TextView
+            android:id="@+id/no_of_messages_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="275dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_selector"
+            android:gravity="center_horizontal"
+            android:paddingBottom="1dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingTop="1dp"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/statusLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_layout"
+        android:layout_marginTop="7dp"
+        android:gravity="center_horizontal"
+        android:paddingBottom="15dp" >
+
+        <TextView
+            android:id="@+id/status"
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status_label"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/job_details_status_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/status"
+            android:paddingLeft="5dp"
+            android:text="accepted"
+            android:textColor="#41b22c"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</RelativeLayout>

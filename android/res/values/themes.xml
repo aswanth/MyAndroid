@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="dayTheme" >
+        <item name="titleBar">@style/titleBarImageDay</item>
+        <item name="themeSwitchBtn">@style/nightBtn</item>
+        <item name="text">@style/textColorDay</item>
+        <item name="greyText">@style/greyTextColorDay</item>
+        <item name="greyHeading">@style/textHeadingDay</item>
+
+        <!-- Job details -->
+        <item name="jobDetailsBG">@style/jobDetailsBGDay</item>
+        <item name="pickUpAddress">@style/textColorDay</item>
+
+        <!-- Account Info -->
+        <item name="accountInfoBG">@style/accountInfoBGDay</item>
+
+        <!-- Login -->
+        <item name="loginBG">@style/loginBGDay</item>
+        <item name="listCell">@style/listCellDay</item>
+
+        <!-- Jobs -->
+        <item name="jobsBG">@style/jobsBGDay</item>
+        <item name="previousJobsBG">@style/previousJobsBGDay</item>
+
+        <!-- Job preview -->
+        <item name="jobPreviewBG">@style/jobPreviewBGDay</item>
+
+        <!-- Payment -->
+        <item name="paymentBG">@style/paymentBGDay</item>
+        <item name="editText">@style/totalFareTextDay</item>
+        <item name="pricesText">@style/pricesTextDay</item>
+
+        <!-- Payment Completion & Failure -->
+        <item name="paymentSuccessBG">@style/paymentSuccessBGDay</item>
+        <item name="greenText">@style/greenTextDay</item>
+        <item name="paymentFailureNewBG">@style/paymentFailureNewBGDay</item>
+        <item name="paymentScrollAreaBG">@style/paymentScrollAreaBGDay</item>
+
+        <!-- Time to pick up -->
+        <item name="pickUpTimeBG">@style/pickUpTimeBGDay</item>
+
+        <!-- Help -->
+        <item name="helpBG">@style/helpBGDay</item>
+
+        <!-- Cancellation reason -->
+        <item name="cancellationReasonBG">@style/cancellationReasonBGDay</item>
+
+        <!-- Chat -->
+        <item name="chatBG">@style/chatBGDay</item>
+        <item name="chatListView">@style/chatListDay</item>
+
+        <!-- Forgot Password -->
+        <item name="forgotPasswordBG">@style/forgotPwdBGDay</item>
+
+        <!-- Payment History SUmmary -->
+        <item name="paymentHistoryBG">@style/paymentHistoryBGDay</item>
+        <item name="progressColor">@style/progressColorDay</item>
+
+        <!-- Payment confirmation page -->
+        <item name="paymentConfirmationBG">@style/paymentConfirmationBGDay</item>
+
+        <!-- Payment Daily History Summary -->
+        <item name="dailyHistorytopBG">@style/dailyHistorytopBGDay</item>
+        <item name="dailyHistorymiddleBG">@style/dailyHistorymiddleBGDay</item>
+        <item name="dailyHistorybottomBG">@style/dailyHistorybottomBGDay</item>
+
+        <!-- Payment History Detail page -->
+        <item name="paymentHistoryDetailBG">@style/paymentHistoryDetailBGDay</item>
+
+        <!-- Complete job page -->
+        <item name="completeJobPageBG">@style/completeJobPageBGDay</item>
+        <item name="completeJobPageDropOffBG">@style/completeJobPageDropOffBGDay</item>
+        <item name="completeJobPageCongratulationBG">@style/completeJobPageCongratulationBGDay</item>
+        <item name="congratulationText">@style/congratulationTextDay</item>
+
+        <!-- Offline Payment page -->
+        <item name="offlinePaymentBodyBg">@style/offlinePaymentBodyBgDay</item>
+
+        <!-- Swipe Card page -->
+        <item name="swipeCardBg">@style/swipeCardBgDay</item>
+
+        <!-- Select Payment page -->
+        <item name="findAccountBG">@style/findAccountBgDay</item>
+
+        <!-- Swipe calculator page -->
+        <item name="swipeCalculatorBG">@style/swipeCalculatorBGDay</item>
+
+        <!-- Payment Completed -->
+        <item name="paymentCompletedBG">@style/paymentCompletedBgDay</item>
+
+        <!-- Payment swipe Completed -->
+        <item name="paymentSwipeBG">@style/paymentSwipeBGDay</item>
+
+        <!-- Practice swipe -->
+        <item name="practiceSwipeBG">@style/swipePracticeBGDay</item>
+                <item name="reportAnIssueBG">@style/reportAnIssueBGDay</item>
+   
+    
+        <item name="seperatorColor">@style/seperatorColorDay</item>
+        <item name="customRadioButton">@style/customRadioButtonDay</item>
+        <item name="mainBG">@style/mainBGDay</item>
+        <item name="topCellBG">@style/topCellBGDay</item>
+        <item name="middleCellBG">@style/middleCellBGDay</item>
+        
+        
+        <item name="bottomCellBG">@style/bottomCellBGDay</item>
+        
+        <item name="squareBoxBG">@style/squareBoxBGDay</item>
+        
+        <item name="paymentSwipeCalculatorBox1">@style/paymentSwipeCalculatorBox1Day</item>
+
+        <item name="paymentSwipeCalculatorBox2">@style/paymentSwipeCalculatorBox2Day</item>
+        
+         <item name="paymentSwipeCalculatorBox3">@style/paymentSwipeCalculatorBox3Day</item>
+        
+        <item name="textColorAndBackground">@style/textColorAndBackgroundDay</item>
+                <item name="editTextTextColorAndBackground">@style/editTextTextColorAndBackgroundDay</item>
+          <!-- Account info new -->
+          <item name="accountInfoNewMainBg">@style/accountInfoNewMainBgDay</item>
+          <item name="accountInfoNewMainMiddleBox">@style/accountInfoNewMainMiddleBoxDay</item>
+          <item name="accountInfoNewListingTopBg">@style/accountInfoNewListingTopBgDay</item>
+          <item name="accountInfoNewListingBtmBg">@style/accountInfoNewListingBtmBgDay</item>
+          <item name="accountInfoNewListingSeprator">@style/accountInfoNewListingSepratorDay</item> 
+          <item name="accountInfoNewListingMainBg">@style/accountInfoNewListingMainBgDay</item>    
+        
+    </style>
+
+    <style name="nightTheme" >
+        <item name="titleBar">@style/titleBarImageNight</item>
+        <item name="themeSwitchBtn">@style/dayBtn</item>
+        <item name="text">@style/textColorNight</item>
+        <item name="greyText">@style/greyTextColorNight</item>
+        <item name="greyHeading">@style/textHeadingNight</item>
+
+        <!-- Job details -->
+        <item name="jobDetailsBG">@style/jobDetailsBGNight</item>
+        <item name="pickUpAddress">@style/pickUpAddressNight</item>
+
+        <!-- Account Info -->
+        <item name="accountInfoBG">@style/accountInfoBGNight</item>
+
+        <!-- Login -->
+        <item name="loginBG">@style/loginBGNight</item>
+        <item name="listCell">@style/listCellNight</item>
+
+        <!-- Jobs -->
+        <item name="jobsBG">@style/jobsBGNight</item>
+        <item name="previousJobsBG">@style/previousJobsBGNight</item>
+
+        <!-- Job preview -->
+        <item name="jobPreviewBG">@style/jobPreviewBGNight</item>
+
+        <!-- Payment -->
+        <item name="paymentBG">@style/paymentBGNight</item>
+        <item name="editText">@style/totalFareTextNight</item>
+        <item name="pricesText">@style/pricesTextNight</item>
+
+        <!-- Payment Completion & Failure -->
+        <item name="paymentSuccessBG">@style/paymentSuccessBGNight</item>
+        <item name="greenText">@style/greenTextNight</item>
+        <item name="paymentFailureNewBG">@style/paymentFailureNewBGNight</item>
+        <item name="paymentScrollAreaBG">@style/paymentScrollAreaBGNight</item>
+
+        <!-- Time to pick up -->
+        <item name="pickUpTimeBG">@style/pickUpTimeBGNight</item>
+
+        <!-- Help -->
+        <item name="helpBG">@style/helpBGNight</item>
+
+        <!-- Cancellation reason -->
+        <item name="cancellationReasonBG">@style/cancellationReasonBGNight</item>
+
+        <!-- Chat -->
+        <item name="chatBG">@style/chatBGNight</item>
+        <item name="chatListView">@style/chatListNight</item>
+
+        <!-- Forgot Password -->
+        <item name="forgotPasswordBG">@style/forgotPwdBGNight</item>
+
+        <!-- Payment History SUmmary -->
+        <item name="paymentHistoryBG">@style/paymentHistoryBGNight</item>
+
+        <!-- Payment confirmation page -->
+        <item name="paymentConfirmationBG">@style/paymentConfirmationBGNight</item>
+
+        <!-- Payment Daily History Summary -->
+        <item name="dailyHistorytopBG">@style/dailyHistorytopBGNight</item>
+        <item name="dailyHistorymiddleBG">@style/dailyHistorymiddleBGNight</item>
+        <item name="dailyHistorybottomBG">@style/dailyHistorybottomBGNight</item>
+
+        <!-- Payment History Detail page -->
+        <item name="paymentHistoryDetailBG">@style/paymentHistoryDetailBGNight</item>
+        <item name="progressColor">@style/progressColorNight</item>
+
+        <!-- Complete job page -->
+
+
+        <!-- Complete job page -->
+        <item name="completeJobPageBG">@style/completeJobPageBGNight</item>
+        <item name="completeJobPageDropOffBG">@style/completeJobPageDropOffBGNight</item>
+        <item name="completeJobPageCongratulationBG">@style/completeJobPageCongratulationBGNight</item>
+        <item name="congratulationText">@style/congratulationTextNight</item>
+
+        <!-- Offline Payment page -->
+        <item name="offlinePaymentBodyBg">@style/offlinePaymentBodyBgNight</item>
+
+        <!-- Swipe Card page -->
+        <item name="swipeCardBg">@style/swipeCardBgNight</item>
+
+        <!-- Select Payment page -->
+        <item name="findAccountBG">@style/findAccountBgNight</item>
+
+        <!-- Swipe calculator page -->
+        <item name="swipeCalculatorBG">@style/swipeCalculatorBGNight</item>
+
+        <!-- Payment Completed -->
+        <item name="paymentCompletedBG">@style/paymentCompletedBgNight</item>
+
+        <!-- Payment swipe Completed -->
+        <item name="paymentSwipeBG">@style/paymentSwipeBGNight</item>
+
+        <!-- Practice swipe -->
+        <item name="practiceSwipeBG">@style/swipePracticeBGNight</item>
+                <item name="reportAnIssueBG">@style/reportAnIssueBGNight</item>
+        
+        <item name="seperatorColor">@style/seperatorColorNight</item>
+                <item name="customRadioButton">@style/customRadioButtonNight</item>
+                        <item name="mainBG">@style/mainBGNight</item>
+                       <item name="topCellBG">@style/topCellBGNight</item>
+                <item name="middleCellBG">@style/middleCellBGNight</item>
+                        <item name="bottomCellBG">@style/bottomCellBGNight</item>
+                                <item name="squareBoxBG">@style/squareBoxBGNight</item>
+        <item name="paymentSwipeCalculatorBox1">@style/paymentSwipeCalculatorBox1Night</item>
+        
+        <item name="paymentSwipeCalculatorBox2">@style/paymentSwipeCalculatorBox2Night</item>
+        
+        <item name="paymentSwipeCalculatorBox3">@style/paymentSwipeCalculatorBox3Night</item>
+        
+                <item name="textColorAndBackground">@style/textColorAndBackgroundNight</item>
+        
+                                            <item name="editTextTextColorAndBackground">@style/editTextTextColorAndBackgroundNight</item>
+                                            
+                                            <!-- Account info new -->
+          <item name="accountInfoNewMainBg">@style/accountInfoNewMainBgNight</item>
+          <item name="accountInfoNewMainMiddleBox">@style/accountInfoNewMainMiddleBoxNight</item>
+          <item name="accountInfoNewListingTopBg">@style/accountInfoNewListingTopBgNight</item>
+          <item name="accountInfoNewListingBtmBg">@style/accountInfoNewListingBtmBgNight</item>
+          <item name="accountInfoNewListingSeprator">@style/accountInfoNewListingSepratorNight</item> 
+          <item name="accountInfoNewListingMainBg">@style/accountInfoNewListingMainBgNight</item>
+                
+        
+    </style>
+
+</resources>

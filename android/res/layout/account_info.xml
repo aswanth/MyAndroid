@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?accountInfoBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/TitleLayout"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDy="1"
+            android:text="@string/account_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeTheme" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TitleLayout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp" >
+
+        <!-- Dummy item to prevent editText from receiving focus -->
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+
+        <!-- Account name -->
+
+        <TextView
+            android:id="@+id/companyNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="@string/company_label_name"
+            style="?text"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/companyNameTextField"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/companyNameTv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/inputbg"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords|textVisiblePassword"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:paddingLeft="7dp"
+            android:text=""
+            android:textColor="#167CC0" />
+
+        <RelativeLayout
+            android:id="@+id/abnLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/companyNameTextField"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/ABNTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/abn_name"
+            	style="?text"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/abnConditionTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_toRightOf="@+id/ABNTv"
+                android:inputType="none"
+                android:text="@string/account_label_condition_abn"
+                style="?text"
+                android:textSize="15dp" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/ABNTextField"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/abnLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/inputbg"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="phone|textVisiblePassword"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:numeric="integer"
+            android:paddingLeft="7dp"
+            android:text=""
+            android:textColor="#167CC0" />
+
+        <TextView
+            android:id="@+id/accountNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ABNTextField"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="@string/account_label_name"
+            style="?text"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/accountNameTextField"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/accountNameTv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/inputbg"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords|textVisiblePassword"
+            android:maxLength="32"
+            android:maxLines="1"
+            android:paddingLeft="7dp"
+            android:text=""
+            android:textColor="#167CC0" />
+
+        <!-- Account BSB -->
+
+        <RelativeLayout
+            android:id="@+id/bspLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/accountNameTextField"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/bsbTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:text="@string/account_label_bsb"
+            	style="?text"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bsbConditionTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_toRightOf="@+id/bsbTv"
+                android:inputType="none"
+                android:text="@string/account_label_condition_bsb"
+                style="?text"
+                android:textSize="15dp" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/bsbTextField"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/bspLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/inputbg"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="phone|textVisiblePassword"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:paddingLeft="7dp"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="#167CC0" >
+        </EditText>
+
+        <!-- Account number -->
+
+        <RelativeLayout
+            android:id="@+id/accountNumberLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bsbTextField"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/accountNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/account_label_number"
+                style="?text"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+            <!-- <TextView android:id="@+id/accountNumberCondition" -->
+            <!-- android:layout_width="wrap_content" android:layout_height="wrap_content" -->
+            <!-- android:text="@string/account_label_condition_number" android:textColor="#000000" -->
+            <!--
+                 android:textSize="15dp" android:layout_toRightOf="@+id/accountNumber" 
+                                />
+            -->
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/accountNoTextField"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/accountNumberLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/inputbg"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:inputType="phone|textVisiblePassword"
+            android:maxLength="9"
+            android:maxLines="1"
+            android:numeric="integer"
+            android:paddingLeft="7dp"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="#167CC0" />
+
+        <ImageButton
+            android:id="@+id/save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/accountNoTextField"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/save_btn_selector"
+            android:enabled="false"
+            android:onClick="saveButtonClicked" />
+    </RelativeLayout>
+
+</RelativeLayout>

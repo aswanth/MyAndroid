@@ -1,0 +1,50 @@
+<resources>
+    <string-array name="id">
+        <item>IG#1001</item>
+        <item>IG#1002</item>
+        <item>IG#1003</item>
+        <item>IG#1004</item>
+        <item>IG#1005</item>
+        <item>IG#1006</item>
+    </string-array>
+    <integer-array name="extra">
+        <item>5</item>
+        <item>15</item>
+        <item>0</item>
+        <item>25</item>
+        <item>10</item>
+        <item>0</item>
+    </integer-array>
+    <string-array name="pickupFrom">
+        <item>Brontai</item>
+        <item>Brontai</item>
+        <item>Brontai</item>
+        <item>Brontai</item>
+        <item>Brontai</item>
+        <item>Brontai</item>
+    </string-array>
+    <string-array name="dropOffTo">
+        <item>Airport</item>
+        <item>Manly</item>
+        <item>Airport</item>
+        <item>Manly</item>
+        <item>Airport</item>
+        <item>Manly</item>
+    </string-array>
+    <string-array name="timeWithIn">
+        <item>5 minutes</item>
+        <item>5 minutes</item>
+        <item>0</item>
+        <item>25 minutes</item>
+        <item>35 minutes</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="passangerName">
+        <item>Smith</item>
+        <item>John</item>
+        <item>Nicolas</item>
+        <item>Pollard</item>
+        <item>Nancy</item>
+        <item>Joe</item>
+    </string-array>
+</resources>

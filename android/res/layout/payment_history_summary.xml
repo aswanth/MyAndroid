@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?paymentHistoryBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="5dp"
+            android:shadowColor="#363636"
+            android:shadowDy="1"
+            android:text="@string/payment_history_summary_page_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeTheme" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/title_layout" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="45dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="15dp" >
+
+            <RelativeLayout
+                android:id="@+id/paymentHistoryListExtra"
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:layout_marginBottom="2dp" >
+
+                <TextView
+                    android:id="@+id/statusText"
+                    style="?text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/payment_status_label"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <TextView
+                    style="?text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@+id/statusText"
+                    android:text="@string/amount_label"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <TextView
+                    style="?text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/date_label"
+                    android:textStyle="bold" >
+                </TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/paymentHistoryListExtra"
+                android:layout_marginBottom="100dp"
+                android:paddingTop="5dip" >
+
+                <ListView
+                    android:id="@+id/paymentSummaryListView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@android:color/transparent"
+                    android:fadingEdge="none" >
+                </ListView>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="?progressColor"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:paddingTop="5dp" >
+
+        <RelativeLayout
+            android:id="@+id/levelDescriptionRL"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/levelHeadingText"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/level_text"
+                android:textSize="16sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/ingogoLevelText"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/levelHeadingText"
+                android:textSize="16sp"
+                android:textStyle="bold|italic" >
+            </TextView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/commissionRL"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/levelDescriptionRL"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/commissionHeadingText"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/commission_text"
+                android:textSize="16sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/commissionText"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/commissionHeadingText"
+                android:textSize="16sp"
+                android:textStyle="bold|italic" />
+        </RelativeLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/commissionRL"
+            android:layout_centerHorizontal="true"
+            android:background="@null"
+            android:onClick="onEarnPercentageButtonClick"
+            android:src="@drawable/earn_btn" />
+    </RelativeLayout>
+
+</RelativeLayout>

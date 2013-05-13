@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="titleBar" format="reference" />
+    <attr name="text" format="reference" />
+    <attr name="greyText" format="reference" />
+    <attr name="greyHeading" format="reference" />
+    <attr name="editText" format="reference" />
+
+    <!-- Job details page -->
+    <attr name="jobDetailsBG" format="reference" />
+    <attr name="themeSwitchBtn" format="reference" />
+    <attr name="pickUpAddress" format="reference" />
+
+    <!-- Account info page -->
+    <attr name="accountInfoBG" format="reference" />
+
+    <!-- Login page -->
+    <attr name="loginBG" format="reference" />
+    <attr name="listCell" format="reference" />
+
+    <!-- Jobs page -->
+    <attr name="jobsBG" format="reference" />
+    <attr name="previousJobsBG" format="reference" />
+
+    <!-- Job preview page -->
+    <attr name="jobPreviewBG" format="reference" />
+
+    <!-- Payment page -->
+    <attr name="paymentBG" format="reference" />
+    <attr name="pricesText" format="reference" />
+
+    <!-- Payment Failure page -->
+    <attr name="paymentFailureNewBG" format="reference" />
+    <attr name="paymentScrollAreaBG" format="reference" />
+
+    <!-- Payment Completion page -->
+    <attr name="paymentCompletionBG" format="reference" />
+    <attr name="paymentSuccessBG" format="reference" />
+    <attr name="greenText" format="reference" />
+
+    <!-- Time to pick up -->
+    <attr name="pickUpTimeBG" format="reference" />
+
+    <!-- Help -->
+    <attr name="helpBG" format="reference" />
+
+    <!-- Cancel reason -->
+    <attr name="cancellationReasonBG" format="reference" />
+
+    <!-- Chat -->
+    <attr name="chatBG" format="reference" />
+    <attr name="chatListView" format="reference" />
+
+    <!-- Forgot password -->
+    <attr name="forgotPasswordBG" format="reference" />
+
+    <!-- Payment Summaries -->
+    <attr name="paymentHistoryBG" format="reference" />
+    <attr name="progressColor" format="reference" />
+    <attr name="amountText" format="reference" />
+    <!-- Payment confirmation page -->
+    <attr name="paymentConfirmationBG" format="reference" />
+
+    <!-- Payment daily history summary -->
+    <attr name="dailyHistorytopBG" format="reference" />
+    <attr name="dailyHistorymiddleBG" format="reference" />
+    <attr name="dailyHistorybottomBG" format="reference" />
+
+    <!-- Payment History Detail page -->
+    <attr name="paymentHistoryDetailBG" format="reference" />
+
+    <!-- complete job page -->
+    <attr name="completeJobPageBG" format="reference" />
+    <attr name="completeJobPageDropOffBG" format="reference" />
+    <attr name="completeJobPageCongratulationBG" format="reference" />
+    <attr name="congratulationText" format="reference" />
+
+    <!-- Offline Payment page -->
+    <attr name="offlinePaymentBodyBg" format="reference" />
+
+    <!-- Swipe Card page -->
+    <attr name="swipeCardBg" format="reference" />
+
+    <!-- Select Payment page -->
+    <attr name="findAccountBG" format="reference" />
+
+    <!-- Swipe calculator page -->
+    <attr name="swipeCalculatorBG" format="reference" />
+
+    <!-- Payment Completed -->
+    <attr name="paymentCompletedBG" format="reference" />
+
+    <!-- Payment swipe -->
+    <attr name="paymentSwipeBG" format="reference" />
+
+    <!-- Swipe practice -->
+    <attr name="practiceSwipeBG" format="reference" />
+    <!-- Print Referral -->
+
+    <attr name="seperatorColor" format="reference" />
+        <attr name="reportAnIssueBG" format="reference" />
+                <attr name="customRadioButton" format="reference" parent="@android:style/Widget.CompoundButton.RadioButton"/>
+        
+        <!-- Main bg -->
+    <attr name="mainBG" format="reference" />
+    <attr name="topCellBG" format="reference" />
+        <attr name="middleCellBG" format="reference" />
+        <attr name="bottomCellBG" format="reference" />
+                <attr name="squareBoxBG" format="reference" />
+       <attr name ="paymentSwipeCalculatorBox1" format="reference"/>
+       <attr name ="paymentSwipeCalculatorBox2" format="reference"/>
+       <attr name ="paymentSwipeCalculatorBox3" format="reference"/>
+       <attr name ="textColorAndBackground" format="reference"/>
+              <attr name ="editTextTextColorAndBackground" format="reference"/>
+              
+          <!-- Account Info New   --> 
+          <attr name="accountInfoNewMainBg" format="reference" />
+          <attr name="accountInfoNewMainMiddleBox" format="reference" />
+          <attr name="accountInfoNewListingTopBg" format="reference" />
+          <attr name="accountInfoNewListingBtmBg" format="reference" /> 
+          <attr name="accountInfoNewListingSeprator" format="reference" /> 
+          <attr name="accountInfoNewListingMainBg" format="reference" /> 
+       
+       
+        
+        
+
+</resources>

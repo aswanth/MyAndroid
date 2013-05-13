@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    style = "?accountInfoNewMainBg" >
+    <RelativeLayout
+        android:id="@+id/TitleLayout"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDy="1"
+            android:text="Account info"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeTheme" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/listViewLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/TitleLayout"
+        style = "?accountInfoNewListingMainBg"
+        >
+    <ListView android:id="@+id/accountDetailsList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fadingEdge="none"
+        android:cacheColorHint="#00000000"
+        android:listSelector="@android:color/transparent"
+        android:divider="@android:color/transparent"/>
+    </RelativeLayout>
+<!--     <RelativeLayout android:id="@+id/bottomLayout" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_margin="5dp" -->
+<!--         android:layout_alignParentBottom="true" -->
+<!--         android:layout_centerHorizontal="true" -->
+<!--         style = "?accountInfoNewListingBtmBg" -->
+<!--         android:gravity="center" -->
+<!--          > -->
+<!--     <TextView android:id="@+id/noteText" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         style = "?text" -->
+<!--         android:textStyle="bold" -->
+<!--         android:layout_margin="1dp" -->
+<!--         android:textSize="12sp" -->
+<!--         android:gravity="center" -->
+<!--         /> -->
+<!--     </RelativeLayout> -->
+    
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:id="@+id/relativeLayout1" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" >
+    <RelativeLayout 
+    	android:id="@+id/relativeLayout2" 
+    	android:layout_width="fill_parent" 
+    	android:layout_height="50dp" 
+    	android:layout_alignParentTop="true" 
+    	android:layout_centerHorizontal="true">
+        <TextView 
+        	style="?text"
+        	android:id="@+id/textDate" 
+            android:textStyle="bold" 
+        	android:layout_width="70dp" 
+        	android:layout_height="wrap_content" 
+        	android:layout_centerVertical="true" 
+        	android:layout_alignParentLeft="true" 
+        	android:layout_marginLeft="25dp"
+        ></TextView>
+        <TextView 
+        	style="?pricesText"
+        	android:id="@+id/textMeterFare" 
+            android:textStyle="bold" 
+        	android:layout_width="105dp" 
+        	android:layout_height="wrap_content" 
+        	android:layout_alignBaseline="@+id/textDate" 
+        	android:layout_alignBottom="@+id/textDate" 
+        	android:layout_toRightOf="@+id/textDate"
+        	android:layout_marginLeft="10dp"
+        	android:gravity="center" 
+        ></TextView>
+        <TextView 
+        	style="?pricesText"
+        	android:id="@+id/textSettling" 
+            android:textStyle="bold" 
+        	android:layout_width="105dp" 
+        	android:layout_height="wrap_content" 
+        	android:layout_alignBaseline="@+id/textMeterFare" 
+        	android:layout_alignBottom="@+id/textMeterFare" 
+        	android:layout_toRightOf="@+id/textMeterFare"
+        	android:gravity="center"  
+        ></TextView>
+    </RelativeLayout>
+</RelativeLayout>
+

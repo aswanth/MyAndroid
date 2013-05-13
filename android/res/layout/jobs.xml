@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?jobsBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:shadowColor="#363636"
+            android:shadowDy="1"
+            android:text="@string/jobs_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeTheme" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/paymentBtnRL"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_layout"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp">
+
+        <ImageButton
+            android:id="@+id/takePaymentBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@null"
+            android:onClick="onIngogoPaymentButtonClick"
+            android:src="@drawable/ingogo_pay_selector"
+            android:layout_marginRight="3dp" >
+        </ImageButton>
+        
+        <ImageButton
+            android:id="@+id/swipePayBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_layout"
+            android:layout_centerHorizontal="true"
+            android:background="@null"
+            android:onClick="onSwipePaymentButtonClick"
+            android:src="@drawable/swipe_pay_selector"
+            android:layout_marginLeft="3dp">
+        </ImageButton>
+        
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/paymentBtnRL" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="45dp"
+            android:paddingTop="7dp" >
+
+            <RelativeLayout
+                android:id="@+id/pickExtraTv"
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:layout_below="@+id/paymentBtnRL"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="7dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    style="?text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/pickup_dropoff_label"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <TextView
+                    style="?text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/pickup_reward_lable"
+                    android:textStyle="bold" >
+                </TextView>
+            </RelativeLayout>
+            
+              <RelativeLayout
+                  android:id="@+id/reconnectLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pickExtraTv"
+                android:layout_marginBottom="4dp"
+                android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:visibility="gone"
+                     >
+             
+
+                    <TextView
+                        android:id="@+id/reconnectInfoTV"
+                        style="?text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp" 
+                        android:text="@string/jobs_reconnect_info_title"
+                        android:paddingLeft="5dp"
+                    android:paddingRight="5dp"/>
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/reconnectInfoTV"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:onClick="onClickReconnectButton"
+                        android:src="@drawable/reconnect_gps_blue"
+                        android:background="@null"
+                        />
+                  
+                </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pickExtraTv"
+                android:layout_marginBottom="4dp" >
+
+                <ListView
+                    android:id="@+id/jobListView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/historyRL"
+                    android:layout_alignParentTop="true"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@android:color/transparent"
+                    android:fadingEdge="none"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" >
+                </ListView>
+
+                <RelativeLayout
+                    android:id="@+id/historyRL"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/historyTV"
+                        style="?previousJobsBG"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/availableButton"
+        android:layout_width="313dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/available_button_selector"
+        android:gravity="center"
+        android:onClick="onAvailableButtonClick" >
+
+        <TextView
+            android:id="@+id/availableStatusTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/busyButton"
+        android:layout_width="313dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/busy_button_selector"
+        android:gravity="center"
+        android:onClick="onBusyButtonClick"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/busyStatusTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</RelativeLayout>

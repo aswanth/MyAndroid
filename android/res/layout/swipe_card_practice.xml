@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?completeJobPageBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/TitleLayout"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDy="1"
+            android:text="@string/practice_swipe_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:id="@+id/themeButton"
+            android:onClick="changeTheme" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TitleLayout" 
+        style="?practiceSwipeBG">
+
+        <TextView
+            android:id="@+id/headingMsgTv"
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="SWIPE 5 INGOGO FACES IN A ROW"
+            android:textSize="18dp" 
+            android:layout_marginTop="7dp"/>
+
+        <RelativeLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/headingMsgTv"
+            android:layout_marginTop="22dp" >
+
+            <ImageButton
+                android:id="@+id/swipeButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_toLeftOf="@+id/swipeButton2"
+                android:background="@null"
+                android:src="@drawable/swipe_gray" />
+
+            <ImageButton
+                android:id="@+id/swipeButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="15dp"
+                android:background="@null"
+                android:src="@drawable/swipe_gray" />
+
+            <ImageButton
+                android:id="@+id/swipeButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_toRightOf="@+id/swipeButton2"
+                android:background="@null"
+                android:src="@drawable/swipe_gray" />
+
+            <ImageButton
+                android:id="@+id/swipeButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/swipeButton2"
+                android:layout_margin="15dp"
+                android:layout_toLeftOf="@+id/dummyButton"
+                android:background="@null"
+                android:src="@drawable/swipe_gray" />
+
+            <ImageButton
+                android:id="@+id/dummyButton"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/swipeButton2"
+                android:layout_centerHorizontal="true"
+                android:src="@null"
+                android:visibility="invisible" />
+
+            <ImageButton
+                android:id="@+id/swipeButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/swipeButton2"
+                android:layout_margin="15dp"
+                android:layout_toRightOf="@+id/dummyButton"
+                android:background="@null"
+                android:src="@drawable/swipe_gray" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/swipeMsgTv"
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@+id/buttonLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="39dp"
+            android:text=""
+            android:gravity="center"
+            android:textSize="16dp">
+        </TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp" >
+
+        <ImageButton
+            android:id="@+id/intCardReaderBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:background="@null"
+            android:onClick="onClickInitialiseCardButton"
+            android:src="@drawable/payment_initialise_card_reader_btn_selector"
+            android:text="Intialise Card Reader"
+            android:visibility="gone" >
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/exitBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/intCardReaderBtn"
+            android:background="@null"
+            android:onClick="onExitButtonClick"
+            android:src="@drawable/exit_swipe_btn"
+            android:visibility="visible" >
+        </ImageButton>
+    </RelativeLayout>
+
+</RelativeLayout>

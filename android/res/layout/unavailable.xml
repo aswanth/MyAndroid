@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+	<!-- Dummy item to prevent editText from receiving focus -->
+	<LinearLayout android:focusable="true"
+		android:focusableInTouchMode="true" android:layout_width="0px"
+		android:layout_height="0px" />
+
+	<!-- <RelativeLayout android:layout_width="fill_parent" -->
+	<!-- android:layout_height="wrap_content" -->
+	<!-- android:layout_alignParentBottom="true" android:background="@drawable/spinner_image" -->
+	<!-- android:gravity="center" android:paddingLeft="20dp" -->
+	<!-- android:paddingRight="20dp"> -->
+
+	<!-- <Spinner -->
+	<!-- android:id="@+id/spinner" -->
+	<!-- android:layout_width="fill_parent" -->
+	<!-- android:layout_height="wrap_content" -->
+	<!-- android:layout_centerInParent="true" -->
+
+
+	<!-- /> -->
+	<!-- <RelativeLayout android:id="@+id/statusLayout" -->
+	<!-- android:layout_width="fill_parent" android:layout_height="35dp" -->
+	<!-- android:background="@drawable/driver_status_background_selector" -->
+	<!-- android:onClick="onStatusButtonClick"> -->
+	<!-- <ImageView android:id="@+id/statusImage" -->
+	<!-- android:layout_width="wrap_content" android:layout_height="wrap_content" -->
+	<!-- android:layout_marginLeft="10dp" android:src="@drawable/busy" -->
+	<!-- android:layout_centerVertical="true" /> -->
+	<!-- <TextView android:id="@+id/statusTv" -->
+	<!-- android:layout_toRightOf="@+id/statusImage" android:layout_width="wrap_content" -->
+	<!-- android:layout_height="wrap_content" android:textColor="#000000" -->
+	<!-- android:layout_centerVertical="true" android:layout_marginLeft="10dp" -->
+	<!-- android:textSize="16dp" -->
+	<!-- android:layout_centerHorizontal="true"/> -->
+	<!-- <Button android:id = "@+id/statusButton" android:layout_width="fill_parent" -->
+	<!-- android:layout_height = "wrap_content" android:background="@android:color/transparent" -->
+	<!-- android:onClick = "onStatusButtonClick"/> -->
+	<!-- </RelativeLayout> -->
+
+
+	<!-- </RelativeLayout> -->
+
+<RelativeLayout android:layout_width="313dp"
+			android:id="@+id/availableButton" android:layout_height="40dp"
+			android:layout_alignParentBottom="true" android:layout_centerInParent = "true"
+			android:background="@drawable/available_button_selector"
+			android:gravity="center" android:visibility="gone"
+			android:layout_marginBottom="2dp">
+			<TextView android:id="@+id/availableStatusTv" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:textColor="#ffffff"
+				android:textStyle="bold"
+				android:textSize="18dp"
+				 />
+		</RelativeLayout>
+		
+		<RelativeLayout android:layout_width="313dp"
+			android:id="@+id/busyButton" android:layout_height="40dp"
+			android:layout_alignParentBottom="true" android:layout_centerInParent = "true"
+			android:background="@drawable/busy_button_selector"
+			android:gravity="center" android:onClick="onStatusButtonClick"
+			android:layout_marginBottom="2dp">
+			<TextView android:id="@+id/busyStatusTv" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:textColor="#ffffff"
+				android:textStyle="bold"
+				android:textSize="18dp"
+				 />
+		</RelativeLayout>
+</RelativeLayout>

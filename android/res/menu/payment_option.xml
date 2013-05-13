@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item
+        android:id="@+id/ingogo_pay"
+        android:title="@string/ingogo_pay_menu_title"/>
+     
+    <item
+        android:id="@+id/swipe_pay"
+        android:title="@string/swipe_pay_menu_title"/>
+     
+</menu>

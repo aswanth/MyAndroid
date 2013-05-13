@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?accountInfoBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/TitleLayout"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDy="1"
+            android:text="@string/cash_receipt_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeTheme" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bodyLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TitleLayout" >
+
+        <RelativeLayout
+            android:id="@+id/fareLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp" >
+
+            <TextView
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/fareEditTextLayout"
+                android:text="@string/totaldue_label"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/fareEditTextLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/payment_received_text_field_normal" >
+
+                <TextView
+                    android:id="@+id/dollar"
+                    style="?editText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:text="$"
+                    android:textSize="28dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/fareEditText"
+                    style="?editText"
+                    android:layout_width="140dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="2dp"
+                    android:layout_toRightOf="@+id/dollar"
+                    android:background="@android:color/transparent"
+                    android:digits="0123456789"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/fare_hint_text"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone"
+                    android:maxLength="7"
+                    android:maxWidth="30dp"
+                    android:singleLine="true"
+                    android:textSize="28dp"
+                    android:textStyle="bold" />
+              
+            </RelativeLayout>
+        </RelativeLayout>
+          <ImageView android:id="@+id/seperator" android:layout_width="fill_parent"
+                    android:layout_height="1dp" 
+                    android:layout_margin="10dp"
+                                android:layout_below="@+id/fareLayout"
+                    
+                    android:background="@android:color/darker_gray"
+                    />
+
+        <RelativeLayout
+            android:id="@+id/pickUpLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seperator"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_alignRight="@id/fareLayout"
+            >
+
+            <TextView
+                android:id="@+id/pickupLabel"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/cash_receipt_pickup_label"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/pickupTv"
+                style="?editTextTextColorAndBackground"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                
+                android:layout_toRightOf="@+id/pickupLabel"
+                android:clickable="true"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:onClick="onPickUpClick"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:singleLine="true"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                                android:text="optional"
+                />
+           
+            
+               <TextView
+                android:id="@+id/paidAtLabel"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/cash_receipt_paidat_label"
+                android:textSize="16dp"
+                android:textStyle="bold" 
+                android:layout_marginTop="35dp"
+                   android:layout_alignRight="@+id/pickupLabel"
+                android:layout_below="@+id/pickupLabel"
+                
+                />
+
+            <TextView
+                android:id="@+id/paidAtTv"
+                style="?editTextTextColorAndBackground"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                
+                                android:layout_toRightOf="@+id/paidAtLabel"
+                android:layout_below="@id/pickupTv"
+                android:layout_alignTop="@+id/paidAtLabel"
+                android:clickable="true"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:onClick="onPaidAtClick"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:singleLine="true"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                                android:text="mandatory"
+                />
+
+            <TextView
+                android:id="@+id/dateLabel"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/paidAtLabel"
+                android:layout_below="@+id/paidAtLabel"
+                android:gravity="center_horizontal"
+                android:text="@string/cash_receipt_date_label"
+                android:textSize="16dp"
+                android:textStyle="bold" 
+                android:layout_marginTop="35dp"/>
+
+            <TextView
+                android:id="@+id/timeLabel"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/paidAtLabel"
+                android:layout_below="@+id/dateLabel"
+                android:gravity="center_horizontal"
+                android:text="@string/cash_receipt_time_label"
+                android:textSize="16dp"
+                android:textStyle="bold" 
+                android:layout_marginTop="35dp"/>
+
+            <TextView
+                android:id="@+id/timeTv"
+                                style="?text"
+                
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dateLabel"
+                android:layout_toRightOf="@+id/timeLabel"
+                android:layout_alignTop="@+id/timeLabel"
+                android:clickable="true"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
+                android:singleLine="true"
+                android:textSize="14dp"
+                android:textStyle="bold" 
+                                                android:layout_marginLeft="20dp"
+                />
+
+            <TextView
+                android:id="@+id/dateTv"
+                                style="?text"
+                
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/dateLabel"
+                android:layout_below="@id/paidAtTv"
+                android:layout_alignTop="@+id/dateLabel"
+                android:clickable="true"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
+                                                android:layout_marginLeft="20dp"
+                
+                android:singleLine="true"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <!-- <TextView
+                android:id="@+id/optionalTV"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pickupTv"
+                android:layout_alignLeft="@id/pickupTv"
+                android:text="* optional" /> -->
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/printReceiptButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@null"
+        android:onClick="onPrintReceiptButtonClick"
+        android:src="@drawable/print" />
+
+</RelativeLayout>

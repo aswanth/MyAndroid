@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ingogo.android"
+    android:versionCode="32"
+    android:versionName="v1.6.1" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-sdk android:minSdkVersion="7"
+        android:targetSdkVersion="15"
+         >
+    </uses-sdk>
+
+    <application
+        android:name=".app.IngogoApp"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait" >
+        <uses-library android:name="com.google.android.maps" />
+
+        <activity
+            android:name=".activities.IGLoginActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.IGSignupActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name=".activities.IGSplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name=".activities.IGTripProgressActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name=".activities.IGHelpActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.IGJobDetailsActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.IGJobsActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.IGJobPreviewActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.IGForgotPasswordActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.IGIntentLauncherActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <data
+                    android:host="ingogo.mobi"
+                    android:path="/appLauncher"
+                    android:scheme="http" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+                <category android:name="android.intent.category.BROWSABLE" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.IGChatActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.IGPaymentActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.IGAccountInfoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.IGTimeToPickUpActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.IGCancellationReasonActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service
+            android:name=".utilities.IGGPSService"
+            android:enabled="true" >
+        </service>
+
+        <activity
+            android:name=".activities.payments.IGPaymentConfirmationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGPaymentSucessActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGPaymentFailureActivity"
+            android:screenOrientation="portrait" 
+            >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGPaymentHistoryDetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGPaymentHistorySummaryActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGPaymentDailySummaryActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGPaymentFailureNewActivity"
+            android:screenOrientation="portrait" 
+            >
+        </activity>
+        <activity
+            android:name=".activities.IGCompleteJobActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.IGOfflineCalculatorActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.IGGPSDisabled"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGPassengerConfirmActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGFindPassengerActivity"
+            
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGSwipeCalculatorActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGPaymentCompletedActivity"
+            
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGSwipePracticeActivity"
+            android:screenOrientation="portrait"
+             >
+        </activity>
+        <activity
+            android:name=".activities.payments.IGPaymentsSwipeActivity"
+            android:screenOrientation="portrait"
+             >
+        </activity>
+        <activity
+            android:name=".activities.IGAddressDetailsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".activities.IGPrinterConfigActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.IGReprintReceiptActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name=".activities.IGDriversMapActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.IGPrintReferralActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.IGReportAnIssueActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".activities.IGCashReceiptActivity"
+            android:screenOrientation="portrait" 
+            >
+        </activity>
+        <activity
+            android:name=".activities.IGAccountInfoRecordedListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.IGAccountInfoRecordedOrNonRecordedActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+    </application>
+
+</manifest>

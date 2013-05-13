@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?jobPreviewBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDy="1"
+            android:text="@string/job_preview_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeTheme" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutForTable"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headerLayout"
+        android:layout_marginTop="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="18dp" >
+
+        <!--
+             <RelativeLayout android:layout_height="wrap_content" android:layout_width="fill_parent" 
+			android:id="@+id/jobTitleLayout" android:padding="10dp"> <TextView android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" android:layout_alignParentLeft="true" 
+			android:id="@+id/jobIdTextView" android:textColor="#FFFFFF" android:textSize="18dp" 
+			android:layout_centerVertical="true" android:textStyle="bold" android:shadowColor="#000000" 
+			android:shadowRadius="1" android:shadowDx="1" android:shadowDy="1"/> </RelativeLayout>
+        -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" >
+
+                <RelativeLayout
+                    android:id="@+id/passengerLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="3dp" >
+
+                    <TextView
+                        android:id="@+id/passengerNameLabel"
+                        style="?greyHeading"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="8dp"
+                        android:gravity="left"
+                        android:text="@string/passenger_label"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/passengerNameTv"
+                        style="?text"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/passengerNameLabel"
+                        android:layout_marginLeft="8dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="20dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/pickupLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/passengerLayout"
+                    android:layout_marginTop="5dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="3dp" >
+
+                    <TextView
+                        android:id="@+id/pickUpLabel"
+                        style="?greyHeading"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="8dp"
+                        android:gravity="left"
+                        android:text="@string/pickup_label"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/addressTv"
+                        style="?pickUpAddress"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/pickUpLabel"
+                        android:layout_marginLeft="8dp"
+                        android:maxLines="3"
+                        android:textSize="20dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/dropOffLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/pickupLayout"
+                    android:layout_marginTop="5dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="3dp" >
+
+                    <TextView
+                        android:id="@+id/dropOffLabel"
+                        style="?greyHeading"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="8dp"
+                        android:gravity="left"
+                        android:text="@string/dropoff_label"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/cityNameTv"
+                        style="?text"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/dropOffLabel"
+                        android:layout_marginLeft="8dp"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:textSize="20dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/pickupByLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dropOffLayout"
+                    android:layout_marginTop="5dp"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="0dp" >
+
+                    <TextView
+                        android:id="@+id/pickUpByLabel"
+                        style="?greyHeading"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="8dp"
+                        android:gravity="left"
+                        android:text="@string/pickupby_label"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/pickupBy"
+                        style="?text"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/pickUpByLabel"
+                        android:layout_marginLeft="8dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="20dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/payLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/pickupByLayout"
+                    android:layout_marginTop="5dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="3dp" >
+
+                    <TextView
+                        android:id="@+id/paysLabel"
+                        style="?greyHeading"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="8dp"
+                        android:gravity="left"
+                        android:text="@string/pays_label"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/paysTv"
+                        style="?text"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/paysLabel"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="20dp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="4dp" >
+
+        <Button
+            android:id="@+id/ignoreJobButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/ignore_button_selector"
+            android:onClick="onIgnoreJobButtonClick" />
+
+        <Button
+            android:id="@+id/acceptJobButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/accept_button_selector"
+            android:onClick="onAcceptJobButtonClick" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?reportAnIssueBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/TitleLayout"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDy="1"
+            android:text="   Issue with Ingogo?"
+            android:textSize="18dp"
+            android:textStyle="normal" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeTheme" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ContentLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TitleLayout"
+        android:layout_margin="5dp" >
+
+        <TextView
+            android:id="@+id/contentTitle"
+            style="?text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDy="1"
+            android:text="@string/report_an_issue_content_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+<ScrollView 
+    android:id="@+id/scrollForPasswordPage"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+    android:layout_above="@+id/issue_note_edit_text"
+    android:layout_marginBottom="8dp"
+                  android:layout_below="@id/contentTitle"
+            android:layout_marginTop="23dp"
+            android:layout_marginLeft="15dp">
+        <RadioGroup
+            android:id="@+id/issueSelector"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" 
+
+            >
+            
+        </RadioGroup>
+        
+        
+        </ScrollView>
+        <EditText
+            android:id="@+id/issue_note_edit_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+            
+            android:background="@drawable/chat_text_bg"
+            android:hint="Send us a note"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
+           android:maxLength="500"
+			android:layout_above="@id/sendbutton"
+			android:capitalize="sentences"
+			android:layout_marginBottom="10dp"
+            android:paddingLeft="5dp" />
+		
+        <Button
+            android:id="@+id/sendbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/send_medium_button_selector"
+            android:onClick="onClickSendButton" />
+        <Button
+            android:id="@+id/diagnosticButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/diagnostic_button_selector"
+            android:onClick="onDiagnosticButtonClicked" />
+        
+    </RelativeLayout>
+
+</RelativeLayout>

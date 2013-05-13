@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ingogo.android.utilities.IGCustomScrollLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fadingEdge="none" >
+
+    <RelativeLayout
+        style="?paymentSwipeBG"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/payment_title_bar"
+            style="?titleBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:paddingRight="16dp"
+                android:shadowColor="#FFFFFF"
+                android:shadowDy="1"
+                android:text="@string/payment_page_title"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/themeButton"
+                style="?themeSwitchBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:onClick="changeTheme" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/payment_title_bar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-5dp" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="174dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center" >
+
+                    <RelativeLayout
+                        android:id="@+id/totalDueLayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" >
+
+                        <TextView
+                            android:id="@+id/totalFareLabel"
+                            style="?text"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="7dp"
+                            android:gravity="right"
+                            android:text="@string/totaldue_label"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="2dp"
+                            android:layout_toRightOf="@+id/totalFareLabel"
+                            android:background="@drawable/payment_received_text_field_normal"
+                            android:gravity="center_vertical" >
+
+                            <TextView
+                                android:id="@+id/dollarsign"
+                                style="?editText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="4dp"
+                                android:text="$"
+                                android:textSize="28dp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/fareEditText"
+                                style="?editText"
+                                android:layout_width="142dp"
+                                android:layout_height="60dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="2dp"
+                                android:layout_toRightOf="@+id/dollarsign"
+                                android:background="@android:color/transparent"
+                                android:digits="0123456789"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
+                                android:hint="@string/fare_hint_text"
+                                android:imeOptions="actionDone"
+                                android:inputType="phone"
+                                android:maxLength="7"
+                                android:maxWidth="30dp"
+                                android:singleLine="true"
+                                android:textSize="28dp"
+                                android:textStyle="bold" 
+                                android:layout_marginRight="7dp"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/baseFeeLayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/totalDueLayout"
+                        android:layout_marginTop="3dp" >
+
+                        <TextView
+                            style="?text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="140dp"
+                            android:text="@string/bookingfee_label"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="?pricesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="205dp"
+                            android:text="$"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/swipeBookingFeeTv"
+                            style="?pricesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="215dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/bidAmountLayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/baseFeeLayout"
+                        android:layout_marginTop="6dp" >
+
+                        <TextView
+                            style="?text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="140dp"
+                            android:text="@string/bidamount_label"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="?pricesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="205dp"
+                            android:text="$"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/swipeBidAmountTV"
+                            style="?pricesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="215dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/bidCreditLayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/bidAmountLayout"
+                        android:layout_marginTop="6dp" >
+
+                        <TextView
+                            style="?text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="140dp"
+                            android:text="@string/bidcredit_label"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="?pricesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="205dp"
+                            android:text="$"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/bidCreditTv"
+                            style="?pricesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="215dp"
+                            android:paddingRight="15dp"
+                            android:singleLine="true"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/bookingFeeLayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/bidCreditLayout"
+                        android:layout_marginTop="6dp" >
+
+                        <TextView
+                            android:id="@+id/bookingFeeLabel"
+                            style="?text"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="Credit Card Surcharge:"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/dollar1"
+                            style="?pricesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+                            android:layout_toRightOf="@+id/bookingFeeLabel"
+                            android:text="$"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/creditCardSurchargeTv"
+                            style="?pricesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:layout_toRightOf="@+id/dollar1"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/totalPaymentDueLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="190dp" >
+
+                    <TextView
+                        android:id="@+id/totalPaymentDueTv"
+                        style="?text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Total Payment Due"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/totalPaymentDueTv"
+                        android:layout_centerHorizontal="true" >
+
+                        <TextView
+                            android:id="@+id/totalFareDollarSymbol"
+                            style="?pricesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$"
+                            android:textSize="30dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/totalFareTv"
+                            style="?pricesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toRightOf="@+id/totalFareDollarSymbol"
+                            android:hint="@string/fare_hint_text"
+                            android:singleLine="true"
+                            android:textSize="30dp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/totalPaymentDueMsgTv"
+                    style="?pricesText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/totalPaymentDueLayout"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/confirmBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@null"
+                android:onClick="onConfirmButtonClick"
+                android:src="@drawable/confirm_large"
+                android:visibility="gone" >
+            </ImageButton>
+
+            <ImageButton
+                android:id="@+id/intCardReaderBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@null"
+                android:onClick="onClickInitialiseCardButton"
+                android:src="@drawable/payment_initialise_card_reader_btn_selector"
+                android:text="Intialise Card Reader"
+                android:visibility="gone" >
+            </ImageButton>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_horizontal" >
+
+                <Button
+                    android:id="@+id/payOfflineBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/intCardReaderBtn"
+                    android:background="@drawable/payment_payoffline_btn_selector"
+                    android:onClick="onClickPayOfflineButtonClicked" />
+
+                <!--
+                 <ImageButton
+                android:id="@+id/confirmButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/payOfflineBtn"
+                android:background="@null"
+                android:enabled="false"
+                android:onClick="onConfirmButtonClick"
+                android:src="@drawable/payment_received_button_selector" />
+                -->
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</com.ingogo.android.utilities.IGCustomScrollLayout>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?findAccountBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/payment_title_bar"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:paddingRight="16dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDy="1"
+            android:text="@string/ingogo_pay_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeTheme" 
+            android:layout_marginRight="3dp"/>
+    </RelativeLayout>
+    <!--  -->
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/payment_title_bar" >
+
+        <RelativeLayout
+            android:id="@+id/enter_no_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/payment_title_bar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/enter_no_TextView"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:gravity="center_horizontal"
+                android:text="If passenger is already an ingogo user, enter mobile number"
+                android:textSize="17dp" />
+
+            <EditText
+                android:id="@+id/enter_no_EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@+id/enter_no_TextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/inputbg"
+                android:gravity="center"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="12"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#167CC0" />
+
+            <ImageButton
+                android:id="@+id/find_account_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enter_no_EditText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="14dp"
+                android:background="@null"
+                android:onClick="findAccountButtonClick"
+                android:src="@drawable/find_account_btn_selector"
+                android:text="" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/passenger_info"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/enter_no_Layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/headingText"
+                style="?pricesText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Passenger found"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nameTV"
+                style="?text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/headingText"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:text="sdasdas" />
+
+            <ImageButton
+                android:id="@+id/confirmBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nameTV"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/payment_received_button_selector"
+                android:onClick="onConfirmButtonClick" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp" >
+
+        <ImageButton
+            android:id="@+id/payOfflineBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/swipe_calculator_pay_offline_selector"
+            android:onClick="onClickPayOfflineButtonClicked" />
+
+        <ImageButton
+            android:id="@+id/swipePayBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_layout"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/payOfflineBtn"
+            android:background="@null"
+            android:onClick="onSwipePaymentButtonClick"
+            android:src="@drawable/swipe_pay_selector" >
+        </ImageButton>
+    </RelativeLayout>
+
+</RelativeLayout>

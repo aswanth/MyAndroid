@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ingogo.android.utilities.IGCustomScrollLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true" 
+    android:fadingEdge="none">
+
+    <RelativeLayout
+        android:id="@+id/loginLayout"
+        style="?loginBG"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <RelativeLayout
+            android:id="@+id/TitleLayout"
+            style="?titleBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:shadowColor="#FFFFFF"
+                android:shadowDy="1"
+                android:text="@string/login_title"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                style="?themeSwitchBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:onClick="changeTheme" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bodyLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TitleLayout"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp" >
+
+            <!-- Dummy item to prevent editText from receiving focus -->
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
+            <TextView
+                android:id="@+id/userIdTv"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="75dp"
+                android:text="@string/userid_label_text"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/mobileNumberLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/userIdTv" >
+
+                <ListView
+                    android:id="@+id/mobileNumberListView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="75dp"
+                    android:layout_below="@+id/userIdTextField"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:cacheColorHint="#00000000"
+                    android:fadingEdge="none"
+                    android:scrollbars="none"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/userIdTextField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/inputbg"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:paddingLeft="7dp"
+                    android:text=""
+                    android:textColor="#167CC0" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/passwordTv"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mobileNumberLayout"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/password_label_text"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/forgot_password_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mobileNumberLayout"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="5dp"
+                android:clickable="true"
+                android:onClick="onForgotPasswordClick"
+                android:text="@string/forgot_password_label_text"
+                android:textColor="#5291c6"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/passwordTextField"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@+id/forgot_password_textview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/inputbg"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:paddingLeft="7dp"
+                android:password="true"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#167CC0" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/vehiclePlateNumber"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/passwordTextField"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/vehicle_plate_number_text"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/plateNumberLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vehiclePlateNumber" >
+
+                <EditText
+                    android:id="@+id/plateNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/inputbg"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapCharacters|textNoSuggestions"
+                    android:maxLines="1"
+                    android:paddingLeft="7dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="#167CC0" />
+
+                <ListView
+                    android:id="@+id/licenseNumberListView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="75dp"
+                    android:layout_below="@+id/plateNo"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:cacheColorHint="#00000000"
+                    android:fadingEdge="none"
+                    android:scrollbars="none"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/vehicleMatchingText"
+                style="?greyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/plateNumberLayout"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="@string/vehicle_plate_matching_text"
+                android:textSize="13dp" />
+
+            <ImageButton
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vehicleMatchingText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/login_button_selector"
+                android:enabled="false"
+                android:onClick="onLoginButtonClick" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</com.ingogo.android.utilities.IGCustomScrollLayout>

@@ -1,0 +1,12 @@
+<resources>
+    <color name="list_item_normal">#FFFFFFFF</color>
+    <color name="list_item_selected">#FFCCCCCC</color>
+    <color name="list_item_disabled">#ff666666</color>
+    <color name="divider_color">#94c3ef</color>
+    <color name="grey_color">#727272</color>
+    <color name="red_color">#ff4222</color>
+    <color name="green_color">#4ab235</color> 
+    <color name="light_green_color">#01FE4C</color>
+        <color name="black_color">#000000</color>
+    
+</resources>

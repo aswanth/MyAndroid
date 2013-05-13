@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?paymentSuccessBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- title -->
+
+    <RelativeLayout
+        android:id="@+id/payment_failure_title_bar"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:paddingRight="16dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDy="1"
+            android:text="@string/payment_failure_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeTheme" />
+    </RelativeLayout>
+
+    <!-- total amount due -->
+
+    <RelativeLayout
+        android:id="@+id/payment_failure_amount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/payment_failure_title_bar"
+        android:layout_marginTop="15dp" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" >
+
+            <TextView
+                android:id="@+id/payment_failure_due_label"
+                style="?text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/totalpaymentdue_label"
+                android:textSize="18dp"
+                android:textStyle="bold" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/payment_failure_due_amount"
+                style="?pricesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="TextView"
+                android:textSize="18dp"
+                android:textStyle="bold" >
+            </TextView>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- failure messages -->
+
+    <RelativeLayout
+        android:id="@+id/payment_failure_messages"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/payment_failure_amount"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="35dp" >
+
+        <TextView
+            android:id="@+id/payment_failure_message_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/payment_failure_message"
+            android:textColor="@color/red_color"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/payment_failure_message"
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/payment_failure_message_label"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="10dp"
+            android:text="Lorem Ipsum"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
+    <!-- Actions -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/payment_failure_messages"
+        android:layout_margin="20dp" >
+
+        <LinearLayout
+            android:id="@+id/tryBtnsLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/payment_failure_offlinepayment_button_layout"
+            android:layout_centerHorizontal="true" >
+
+
+            <Button
+                android:id="@+id/swipeAnotherCardBtn"
+                android:layout_width="134dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/swipe_another_card"
+                android:onClick="onSwipeAnotherCardBtnClicked" 
+                android:visibility="gone" >
+            </Button>
+
+            <Button
+                android:id="@+id/tryAnotherCardBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/try_another_card_btn_selector"
+                android:onClick="onTryAnotherCardBtnClicked"
+                android:visibility="gone"  />
+
+            <Button
+                android:id="@+id/tryAgainHBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/try_again_half_size_selector"
+                android:onClick="onTryAgainButtonClick" 
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/payment_failure_tryagain_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/payment_failure_offlinepayment_button_layout"
+            android:layout_margin="4dp"
+            android:background="@drawable/payment_failure_tryagain_btn_selector"
+            android:enabled="true"
+            android:onClick="onTryAgainButtonClick"/>
+
+        <LinearLayout
+            android:id="@+id/payment_failure_offlinepayment_button_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"  >
+
+             <Button
+                 android:id="@+id/swipeAnotherCardBottomBtn"
+                 android:layout_width="134dp"
+                 android:layout_height="wrap_content"
+                 android:layout_margin="4dp"
+                 android:background="@drawable/swipe_another_card"
+                 android:onClick="onSwipeAnotherCardBtnClicked"
+                 android:visibility="gone" />
+
+            <Button
+                android:id="@+id/payment_failure_offlinepayment_half_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/skip_button_selector"
+                android:enabled="true"
+                android:onClick="onPayOfflineButtonClick"
+                android:visibility="gone" />
+            
+            <Button
+                android:id="@+id/payment_failure_offlinepayment_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/payment_failure_payoffline_btn_selector"
+                android:enabled="true"
+                android:onClick="onPayOfflineButtonClick"
+                android:visibility="visible" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

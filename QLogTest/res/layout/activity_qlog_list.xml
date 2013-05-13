@@ -1,0 +1,173 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".QLogListActivity" 
+    android:background="#000000">
+    
+    <RelativeLayout android:id="@+id/devicedetailtexts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        
+        <TextView
+        android:id="@+id/phonemodeltext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone model" 
+        android:textColor="#ffffff"/>
+        
+        <!-- <TextView
+        android:id="@+id/phonemodelvalue"
+        android:layout_toRightOf="@+id/phonemodeltext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:text="phonemodeltext" 
+        android:textColor="#ffffff"/> -->
+        
+        <TextView
+        android:id="@+id/androidversiontext"
+        android:layout_below="@+id/phonemodeltext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:text="Android version" />
+        
+        <!-- <TextView
+        android:id="@+id/androidversionvalue"
+        android:layout_toRightOf="@+id/androidversiontext"
+        android:layout_below="@+id/phonemodeltext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:text="phonemodeltext" 
+        android:textColor="#ffffff"/> -->
+        
+        <TextView
+        android:id="@+id/brandtext"
+        android:layout_below="@+id/androidversiontext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:text="Brand" />
+        
+        <TextView
+        android:id="@+id/deviceidtext"
+        android:layout_below="@+id/brandtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:text="Device id" />
+        
+        <!-- <TextView
+        android:id="@+id/brandvalue"
+        android:layout_toRightOf="@+id/brandtext"
+        android:layout_below="@+id/androidversiontext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:text="phonemodeltext" 
+        android:textColor="#ffffff"/> -->
+        
+        <TextView
+        android:id="@+id/appid"
+        android:layout_below="@+id/deviceidtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:text="Package name" />
+        
+        <!-- <TextView
+        android:id="@+id/appidvalue"
+        android:layout_toRightOf="@+id/appid"
+        android:layout_below="@+id/brandtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:text="phonemodeltext" 
+        android:textColor="#ffffff"/> -->
+        
+    </RelativeLayout>
+    
+    <RelativeLayout android:id="@+id/devicedetailvalues"
+        android:layout_toRightOf="@+id/devicedetailtexts"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        
+        <TextView
+        android:id="@+id/phonemodelvalue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=": phonemodeltext" 
+        android:textColor="#ffffff"/>
+        
+        <TextView
+        android:id="@+id/androidversionvalue"
+        android:layout_below="@+id/phonemodelvalue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=": phonemodeltext" 
+        android:textColor="#ffffff"/>
+        
+        <TextView
+        android:id="@+id/brandvalue"
+        android:layout_below="@+id/androidversionvalue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=": phonemodeltext" 
+        android:textColor="#ffffff"/>
+        
+        <TextView
+        android:id="@+id/deviceidvalue"
+        android:layout_below="@+id/brandvalue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=": phonemodeltext" 
+        android:textColor="#ffffff"/>
+        
+        <TextView
+        android:id="@+id/appidvalue"
+        android:layout_below="@+id/deviceidvalue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=": phonemodeltext" 
+        android:textColor="#ffffff"/>
+        
+     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_below="@+id/devicedetailtexts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"
+        android:text="Log files:" />
+    
+    <Button android:id="@+id/sendmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/devicedetailtexts"
+        android:layout_alignParentRight="true"
+        android:background="#ffffffff"
+        android:text="Send selected logs"/>
+    
+    <ListView
+        android:id="@+id/loglist"
+        android:layout_below="@+id/text"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"/>
+
+</RelativeLayout>

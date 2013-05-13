@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:paddingBottom="1dp"
+    android:paddingTop="1dp" >
+
+    <RelativeLayout
+        android:id="@+id/chat_top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outgoingchat_top" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/chat_middle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chat_top"
+        android:background="@drawable/outgoingchat_middle" >
+
+        <TextView
+            android:id="@+id/outgoing_chat_text_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="23dp"
+            android:paddingRight="95dp"
+            android:text="I have the sednafa that happened to be real of the that is happened in the middle of the things of the that"
+            android:textColor="@android:color/black" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/passenger_did_not_receive_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/outgoing_chat_text_view"
+            android:paddingLeft="23dp"
+            android:paddingRight="85dp"
+            android:textSize="10sp"
+            android:text="@string/passenger_not_receive_chat_lablel"
+            android:textColor="#FF0000"
+            android:visibility="gone" >
+        </TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/chat_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chat_middle"
+        android:background="@drawable/outgoingchat_bottom" >
+    </RelativeLayout>
+
+</LinearLayout>

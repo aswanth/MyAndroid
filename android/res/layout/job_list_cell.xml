@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp" >
+
+    <RelativeLayout
+        android:id="@+id/pickupDropoffLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true" >
+
+        <TextView
+            android:id="@+id/job_desc_text"
+            style="?pickUpAddress"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:textSize="18dp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/drop_off_text"
+            style="?text"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/job_desc_text"
+            android:layout_marginLeft="10dp"
+            android:textSize="18dp" >
+        </TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bidFareLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/pickupDropoffLayout" >
+        <ImageView android:id = "@+id/passengerStatusImageView"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:background="@drawable/new_passenger_status"
+            />
+		<RelativeLayout android:id="@+id/passengerStatusLayout"
+		    android:layout_width="wrap_content" android:layout_height="wrap_content"
+		    android:layout_centerVertical="true"
+		    android:gravity="center"
+            android:layout_toRightOf="@+id/passengerStatusImageView"
+            android:background="@drawable/new_trans"
+            >
+        <TextView
+            android:id="@+id/pickUpTime"
+            style="?greyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/meridian"
+            style="?greyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/pickUpTime"
+            android:textSize="12dp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/job_extra_text"
+            style="?greyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pickUpTime"
+            android:textSize="15dp" >
+        </TextView>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

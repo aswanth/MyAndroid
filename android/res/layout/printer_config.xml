@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?accountInfoBG"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/TitleLayout"
+        style="?titleBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="4dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDy="1"
+            android:text="@string/printer_configure_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            style="?themeSwitchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:onClick="changeTheme" />
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/printReceiptBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TitleLayout"
+        android:layout_centerHorizontal="true"
+        android:onClick="onPrintReceiptClick"
+        android:background="@drawable/print_test_receipt"
+        android:layout_marginTop="10dp"
+     >
+    </ImageButton>
+
+
+    <TextView
+        android:id="@+id/printerInstructionTv"
+        style="?text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/printReceiptBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:text="@string/printer_configure_instruction"
+        android:textSize="18sp" />
+
+    <RelativeLayout
+        android:id="@+id/printerCodeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/printerInstructionTv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" >
+
+        <TextView
+            android:id="@+id/printerCodeTv"
+            style="?text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/printer_code_label"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/printerCodeTextField"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_below="@+id/printerCodeLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/inputbg"
+        android:gravity="center"
+        android:imeOptions="actionDone"
+        android:inputType="textCapCharacters"
+        android:maxLength="100"
+        android:maxLines="1"
+        android:paddingLeft="7dp"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="#167CC0" />
+
+    <ImageButton
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/printerCodeTextField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/save_btn_selector"
+        android:onClick="saveButtonClicked" />
+
+    <ImageButton
+        android:id="@+id/exitBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="6dp"
+        android:background="@null"
+        android:onClick="onExitButtonClick"
+        android:src="@drawable/exit_swipe_btn" />
+
+</RelativeLayout>
